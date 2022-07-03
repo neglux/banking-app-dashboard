@@ -1,7 +1,16 @@
 import React from "react";
+import Menu from "./components/Menu";
+import Navbar from "./components/Navbar";
+import Viewer from "./components/Viewer";
 
 function App() {
-  return <div>App</div>;
+  return (
+    <>
+      <Navbar />
+      <Menu />
+      <Viewer />
+    </>
+  );
 }
 
 export default App;
