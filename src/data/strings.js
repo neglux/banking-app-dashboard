@@ -17,4 +17,16 @@ export default {
       title: "Balance",
     },
   },
+  transfer: {
+    form: {
+      senderLabelText: "sender",
+      receiverLabelText: "receiver",
+      amountLabelText: "amount",
+      currencyLabelText: "currency",
+      typeLabelText: "type",
+      dateLabelText: "date",
+      FeeLabelText: "fee",
+      sendBtn: "send",
+    },
+  },
 };
