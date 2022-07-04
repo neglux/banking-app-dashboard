@@ -1,5 +1,5 @@
 import React from "react";
-import strings from "../data/strings";
+import strings from "../../data/strings";
 
 const Menu = () => {
   const { sections } = strings.menu;

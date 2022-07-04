@@ -1,7 +1,7 @@
 import React from "react";
-import Menu from "./components/Menu";
-import Navbar from "./components/Navbar";
-import Viewer from "./components/Viewer";
+import Navbar from "./ui/templates/Navbar";
+import Menu from "./ui/templates/Menu";
+import Viewer from "./ui/templates/Viewer";
 
 function App() {
   return (
