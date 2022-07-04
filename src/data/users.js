@@ -1,0 +1,42 @@
+export default [
+  {
+    id: "f3cb666d-efbf-45ee-815d-f6677ba49433",
+    username: "deidra",
+    firstName: "Deidra",
+    lastName: "Simon",
+    location: "California, United States",
+    movementId: "f6677ba49433",
+  },
+  {
+    id: "9fd13c1f-a8a1-418a-892c-d75455295a32",
+    username: "fae",
+    firstName: "Fae",
+    lastName: "Merrill",
+    location: "Virginia, United States",
+    movementId: "d75455295a32",
+  },
+  {
+    id: "68c7dd93-d35d-48a6-82d1-e0444dc11fbc",
+    username: "frazier",
+    firstName: "Frazier",
+    lastName: "Henson",
+    location: "North Carolina, United States",
+    movementId: "e0444dc11fbc",
+  },
+  {
+    id: "9bd8524a-fde7-461d-a198-87ab0f49781c",
+    username: "mike",
+    firstName: "Mike",
+    lastName: "Augustine",
+    location: "Budapest, Hungary",
+    movementId: "87ab0f49781c",
+  },
+  {
+    id: "fc34b0b1-b1d3-4661-86d6-782e3d6db6e7",
+    username: "denice",
+    firstName: "Denice",
+    lastName: "Augustine",
+    location: "South Dakota, United States",
+    movementId: "782e3d6db6e7",
+  },
+];
