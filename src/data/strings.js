@@ -6,15 +6,15 @@ export default {
   menu: {
     sections: ["Dashboard", "Transfer", "Loan", "Options"],
   },
-  // dashboard: {
-  //   containerRate: {
-  //     title: "Currency Rates",
-  //   },
-  //   containerMovement: {
-  //     title: "Movements",
-  //   },
-  //   containerBalance: {
-  //     title: "Balance",
-  //   },
-  // },
+  dashboard: {
+    containerRate: {
+      title: "Currency Rates",
+    },
+    containerMovement: {
+      title: "Movements",
+    },
+    containerBalance: {
+      title: "Balance",
+    },
+  },
 };
