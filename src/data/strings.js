@@ -23,10 +23,10 @@ export default {
       receiverLabelText: "receiver",
       amountLabelText: "amount",
       currencyLabelText: "currency",
-      typeLabelText: "type",
       dateLabelText: "date",
-      FeeLabelText: "fee",
+      feeLabelText: "fee",
       sendBtn: "send",
     },
+    dropdownText: "Choose One",
   },
 };
