@@ -1,7 +1,7 @@
 const reducer = (state, action) => {
   switch (action.type) {
-    case "":
-      return { ...state };
+    case "SET_ACT_IX":
+      return { ...state, activeModuleIx: action.payload.id };
     default:
       throw new Error(`Unhandled action type '${action.type}'`);
   }
