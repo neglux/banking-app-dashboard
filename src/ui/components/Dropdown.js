@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GrNext } from "react-icons/gr";
 import strings from "../../data/strings";
 
-const Dropdown = ({ text, data }) => {
+const Dropdown = ({ text, data, selectHandler = () => {} }) => {
   const { dropdownText } = strings.transfer;
   const [selectedIx, setSelectedIx] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  useEffect(() => {
+    selectHandler(data[selectedIx]);
+  }, [selectedIx]);
   return (
     <div className="flex my-4">
       <label className="capitalize">{text}:</label>

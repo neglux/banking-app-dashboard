@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ text }) => {
+const Input = ({ text, value, changeHandler }) => {
   return (
     <div className="flex">
       <label className="capitalize" htmlFor={text}>
@@ -11,6 +11,10 @@ const Input = ({ text }) => {
           className="w-[120px] h-[30px] bg-gray-300 rounded-md px-2 text-center"
           name={text}
           type="number"
+          value={value}
+          onChange={(e) => {
+            changeHandler(e.target.value);
+          }}
         ></input>
       </div>
     </div>
