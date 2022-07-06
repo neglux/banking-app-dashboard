@@ -24,6 +24,13 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "SET_ACT_IX", payload: { id } });
   }
 
+  function login(username, password) {
+    const validUser = users.find(
+      (user) => user?.username === username && user?.password === password
+    );
+    if (validUser) setActiveUser(validUser.id);
+  }
+
   function setActiveUser(id) {
     const user = users.find((user) => user.id === id);
     dispatch({ type: "SET_ACT_USER", payload: { user } });
@@ -67,7 +74,7 @@ const AppProvider = ({ children }) => {
       value={{
         ...state,
         setActiveModuleIx,
-        setActiveUser,
+        login,
         setMovements,
         calcBalance,
         logout,
