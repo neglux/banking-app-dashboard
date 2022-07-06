@@ -28,7 +28,10 @@ const AppProvider = ({ children }) => {
     const validUser = users.find(
       (user) => user?.username === username && user?.password === password
     );
-    if (validUser) setActiveUser(validUser.id);
+    if (validUser) {
+      setActiveUser(validUser.id);
+      setMovements(validUser);
+    }
   }
 
   function setActiveUser(id) {
@@ -44,6 +47,10 @@ const AppProvider = ({ children }) => {
       type: "SET_MOVS",
       payload: { userMovements: userMovements.movements },
     });
+  }
+
+  function addMovement(movement) {
+    dispatch({ type: "ADD_MOV", payload: { movement } });
   }
 
   function calcBalance(movements) {
@@ -76,6 +83,7 @@ const AppProvider = ({ children }) => {
         setActiveModuleIx,
         login,
         setMovements,
+        addMovement,
         calcBalance,
         logout,
       }}
