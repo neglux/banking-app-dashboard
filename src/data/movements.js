@@ -4,7 +4,7 @@
 //       {
 //         sender: "",
 //         receiver: "",
-//         amount: "",
+//         amount: ,
 //         currency: "",
 //         type: "",
 //         date: "",
@@ -19,7 +19,7 @@ export default [
       {
         sender: "Fae Merrill",
         receiver: "Deidra Simon",
-        amount: "500",
+        amount: 500,
         currency: "USD",
         type: "deposit",
         date: "2022-06-30T19:52:23+0000",
@@ -27,7 +27,7 @@ export default [
       {
         sender: "Deidra Simon",
         receiver: "Fae Merrill",
-        amount: "250",
+        amount: 250,
         currency: "USD",
         type: "withdrawal",
         date: "2022-07-04T15:10:00+0000",
@@ -35,7 +35,7 @@ export default [
       {
         sender: "bank",
         receiver: "Deidra Simon",
-        amount: "2500",
+        amount: 2500,
         currency: "USD",
         type: "loan",
         date: "2022-09-01T16:43:44+0000",
@@ -48,7 +48,7 @@ export default [
       {
         sender: "Frazier Henson",
         receiver: "Fae Merrill",
-        amount: "1250",
+        amount: 1250,
         currency: "USD",
         type: "deposit",
         date: "2022-07-03T20:58:56+0000",
@@ -56,7 +56,7 @@ export default [
       {
         sender: "Fae Merrill",
         receiver: "Deidra Simon",
-        amount: "500",
+        amount: 500,
         currency: "USD",
         type: "withdrawal",
         date: "2022-06-30T19:52:23+0000",
@@ -64,7 +64,7 @@ export default [
       {
         sender: "Deidra Simon",
         receiver: "Fae Merrill",
-        amount: "250",
+        amount: 250,
         currency: "USD",
         type: "deposit",
         date: "2022-07-04T15:10:00+0000",
@@ -77,7 +77,7 @@ export default [
       {
         sender: "bank",
         receiver: "Frazier Henson",
-        amount: "250",
+        amount: 250,
         currency: "USD",
         type: "loan",
         date: "2022-08-12T05:18:07+0000",
@@ -85,7 +85,7 @@ export default [
       {
         sender: "bank",
         receiver: "Frazier Henson",
-        amount: "150",
+        amount: 150,
         currency: "USD",
         type: "loan",
         date: "2022-09-17T09:53:05+0000",
@@ -93,7 +93,7 @@ export default [
       {
         sender: "bank",
         receiver: "Frazier Henson",
-        amount: "350",
+        amount: 350,
         currency: "USD",
         type: "loan",
         date: "2022-10-17T09:53:05+0000",
@@ -101,7 +101,7 @@ export default [
       {
         sender: "Frazier Henson",
         receiver: "Fae Merrill",
-        amount: "1250",
+        amount: 1250,
         currency: "USD",
         type: "withdrawal",
         date: "2022-07-03T20:58:56+0000",
@@ -114,7 +114,7 @@ export default [
       {
         sender: "Denice Augustine",
         receiver: "Mike Augustine",
-        amount: "570",
+        amount: 570,
         currency: "EUR",
         type: "deposit",
         date: "2022-06-13T11:56:41+0000",
@@ -122,7 +122,7 @@ export default [
       {
         sender: "Denice Augustine",
         receiver: "Mike Augustine",
-        amount: "570",
+        amount: 570,
         currency: "EUR",
         type: "deposit",
         date: "2022-07-13T11:56:41+0000",
@@ -130,7 +130,7 @@ export default [
       {
         sender: "Denice Augustine",
         receiver: "Mike Augustine",
-        amount: "570",
+        amount: 570,
         currency: "EUR",
         type: "deposit",
         date: "2022-09-13T11:56:41+0000",
@@ -143,7 +143,7 @@ export default [
       {
         sender: "Denice Augustine",
         receiver: "Mike Augustine",
-        amount: "570",
+        amount: 570,
         currency: "EUR",
         type: "withdrawal",
         date: "2022-06-13T11:56:41+0000",
@@ -151,7 +151,7 @@ export default [
       {
         sender: "Denice Augustine",
         receiver: "Mike Augustine",
-        amount: "570",
+        amount: 570,
         currency: "EUR",
         type: "withdrawal",
         date: "2022-07-13T11:56:41+0000",
@@ -159,7 +159,7 @@ export default [
       {
         sender: "Denice Augustine",
         receiver: "Mike Augustine",
-        amount: "570",
+        amount: 570,
         currency: "EUR",
         type: "withdrawal",
         date: "2022-09-13T11:56:41+0000",
