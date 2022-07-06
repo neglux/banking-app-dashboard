@@ -7,10 +7,7 @@ import { useGlobalContext } from "../../context/context";
 const Dashboard = () => {
   const { containerRate, containerMovement, containerBalance } =
     strings.dashboard;
-  const { userMovements, setMovements, activeUser } = useGlobalContext();
-  useEffect(() => {
-    setMovements(activeUser);
-  }, [activeUser]);
+  const { userMovements } = useGlobalContext();
 
   return (
     <Section style="grid grid-cols-2 gap-10">
