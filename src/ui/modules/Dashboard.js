@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import strings from "../../data/strings";
 import Section from "../components/Section";
 import Container from "../components/Container";
+import { useGlobalContext } from "../../context/context";
 
 const Dashboard = () => {
   const { containerRate, containerMovement, containerBalance } =
     strings.dashboard;
+  const { userMovements, setMovements, activeUser } = useGlobalContext();
+  useEffect(() => {
+    setMovements(activeUser);
+  }, [activeUser]);
+
   return (
     <Section style="grid grid-cols-2 gap-10">
       <article>
         <h3>{containerMovement.title}</h3>
-        <Container style="min-h-[450px]">{/* <MovementItem /> */}</Container>
+        <Container style="min-h-[450px]">
+          {userMovements.map((movement, index) => (
+            <MovementItem key={index} {...movement} />
+          ))}
+        </Container>
       </article>
       <div>
         <article>
@@ -20,7 +30,7 @@ const Dashboard = () => {
         <article className="w-fit ml-auto my-5">
           <h3>{containerBalance.title}</h3>
           <Container style="min-h-[50px] min-w-[120px] w-fit">
-            {/* <BalanceItem /> */}
+            <BalanceItem />
           </Container>
         </article>
       </div>
@@ -44,27 +54,40 @@ const RateItem = () => {
   );
 };
 
-const MovementItem = () => {
+const MovementItem = ({ sender, receiver, amount, currency, type, date }) => {
   return (
     <li className="w-full h-fit px-8 py-2 bg-gray-50 mt-1 border-l-4 border-gray-800 text-sm">
       <div className="flex justify-between">
         <div>
-          <h5 className="font-bold text-xl"></h5>
-          <span className="text-sm"></span>
+          <h5 className="font-bold text-xl">
+            {amount}&nbsp;
+            {currency}
+          </h5>
+          <span className="text-sm">{type}</span>
         </div>
-        <span></span>
+        <span>{date}</span>
       </div>
       <p className="mt-3">
-        <span className="text-gray-400"></span>
-        &nbsp;&nbsp;
-        <span className="text-gray-400"></span>
+        <span className="text-gray-400">{sender}</span>
+        &nbsp;to&nbsp;
+        <span className="text-gray-400">{receiver}</span>
       </p>
     </li>
   );
 };
 
 const BalanceItem = () => {
-  return <li className="my-auto mx-auto px-5 font-bold text-xl"></li>;
+  const { balance, calcBalance, userMovements } = useGlobalContext();
+  useEffect(() => {
+    calcBalance(userMovements);
+  }, [userMovements]);
+
+  return (
+    <li className="my-auto mx-auto px-5 font-bold text-xl">
+      {balance}
+      {}
+    </li>
+  );
 };
 
 export default Dashboard;

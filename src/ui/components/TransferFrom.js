@@ -5,6 +5,7 @@ import Input from "./Input";
 import TextBox from "./TextBox";
 import users from "../../data/users";
 import bank from "../../data/bank";
+import { useGlobalContext } from "../../context/context";
 
 const TransferFrom = () => {
   const {
@@ -18,7 +19,7 @@ const TransferFrom = () => {
       sendBtn,
     },
   } = strings.transfer;
-
+  const { activeUser } = useGlobalContext();
   const names = getNames(users);
 
   function getNames(object) {
@@ -31,7 +32,10 @@ const TransferFrom = () => {
 
   return (
     <form className="ml-40 my-20">
-      <TextBox label={senderLabelText} text="John Doe" />
+      <TextBox
+        label={senderLabelText}
+        text={`${activeUser.firstName} ${activeUser.lastName}`}
+      />
       <Dropdown text={receiverLabelText} data={names} />
       <div className="flex items-center">
         <Input text={amountLabelText} />
