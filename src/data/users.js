@@ -6,6 +6,7 @@ export default [
     firstName: "Deidra",
     lastName: "Simon",
     location: "California, United States",
+    language: "en-US",
     movementId: "f6677ba49433",
   },
   {
@@ -15,6 +16,7 @@ export default [
     firstName: "Fae",
     lastName: "Merrill",
     location: "Virginia, United States",
+    language: "en-US",
     movementId: "d75455295a32",
   },
   {
@@ -24,6 +26,7 @@ export default [
     firstName: "Frazier",
     lastName: "Henson",
     location: "North Carolina, United States",
+    language: "en-US",
     movementId: "e0444dc11fbc",
   },
   {
@@ -33,6 +36,7 @@ export default [
     firstName: "Mike",
     lastName: "Augustine",
     location: "Budapest, Hungary",
+    language: "en-US",
     movementId: "87ab0f49781c",
   },
   {
@@ -42,6 +46,7 @@ export default [
     firstName: "Denice",
     lastName: "Augustine",
     location: "South Dakota, United States",
+    language: "en-US",
     movementId: "782e3d6db6e7",
   },
 ];
