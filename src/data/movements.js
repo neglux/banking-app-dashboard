@@ -22,7 +22,7 @@ export default [
         amount: 500,
         currency: "USD",
         type: "deposit",
-        date: "2022-06-30T19:52:23+0000",
+        date: "2022-07-07T07:00:51+0000",
       },
       {
         sender: "Deidra Simon",
@@ -30,7 +30,7 @@ export default [
         amount: 250,
         currency: "USD",
         type: "withdrawal",
-        date: "2022-07-04T15:10:00+0000",
+        date: "2022-07-06T07:00:51+0000",
       },
       {
         sender: "bank",
@@ -38,7 +38,7 @@ export default [
         amount: 2500,
         currency: "USD",
         type: "loan",
-        date: "2022-09-01T16:43:44+0000",
+        date: "2022-06-30T07:00:51+0000",
       },
     ],
   },
