@@ -9,12 +9,21 @@ const Dashboard = () => {
     strings.dashboard;
   const { userMovements } = useGlobalContext();
 
+  function sortMovementsByDate(data) {
+    const sortedData = [...data];
+    sortedData.sort((a, b) => {
+      if (new Date(a.date) < new Date(b.date)) return 1;
+      else return -1;
+    });
+    return sortedData;
+  }
+
   return (
     <Section style="grid grid-cols-2 gap-10">
       <article>
         <h3>{containerMovement.title}</h3>
-        <Container style="min-h-[450px]">
-          {userMovements.map((movement, index) => (
+        <Container style="min-h-[450px] overflow-y-scroll">
+          {sortMovementsByDate(userMovements).map((movement, index) => (
             <MovementItem key={index} {...movement} />
           ))}
         </Container>
