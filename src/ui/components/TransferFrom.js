@@ -24,15 +24,28 @@ const TransferFrom = () => {
   const [amount, setAmount] = useState();
   const [currency, setCurrency] = useState();
   const { activeUser, addMovement } = useGlobalContext();
-  const names = getNames(users);
 
-  function getNames(object) {
-    const array = object.map((item) => {
-      return `${item?.firstName} ${item?.lastName}`;
+  function getNames(data) {
+    return data.map((item) => {
+      if (!isActiveUser(item)) return `${item?.firstName} ${item?.lastName}`;
     });
-
-    return array;
   }
+
+  function isActiveUser(user) {
+    return activeUser === user;
+  }
+
+  function createMovement(sender, receiver, amount, currency, type, date) {
+    return {
+      sender: `${sender.firstName} ${sender.lastName}`,
+      receiver,
+      amount: parseInt(amount),
+      currency,
+      type: type,
+      date: date,
+    };
+  }
+
   return (
     <form
       className="ml-40 my-20"
@@ -46,7 +59,7 @@ const TransferFrom = () => {
       />
       <Dropdown
         text={receiverLabelText}
-        data={names}
+        data={getNames(users)}
         selectHandler={setReceiver}
       />
       <div className="flex items-center">
@@ -68,15 +81,15 @@ const TransferFrom = () => {
       <Button
         text={sendBtn}
         clickHandler={() => {
-          const movement = {
-            sender: `${activeUser.firstName} ${activeUser.lastName}`,
+          const movement = createMovement(
+            activeUser,
             receiver,
-            amount: parseInt(amount),
+            amount,
             currency,
-            type: "withdrawal",
-            date: new Date().toISOString(),
-          };
-          addMovement(movement);
+            "withdrawal",
+            new Date().toISOString()
+          );
+          addMovement(movement, activeUser);
         }}
       />
     </form>

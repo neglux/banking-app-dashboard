@@ -6,12 +6,6 @@ const reducer = (state, action) => {
       return { ...state, activeUser: action.payload.user };
     case "SET_MOVS":
       return { ...state, userMovements: action.payload.userMovements };
-    case "ADD_MOV":
-      const newArray = [...state.userMovements, action.payload.movement];
-      return {
-        ...state,
-        userMovements: newArray,
-      };
     case "LOG_OUT":
       return { ...state, activeUser: null };
     case "CALC_BAL":

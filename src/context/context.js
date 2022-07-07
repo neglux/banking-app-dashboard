@@ -34,30 +34,50 @@ const AppProvider = ({ children }) => {
     }
   }
 
+  function findUserByID(id) {
+    return users.find((user) => user.id === id);
+  }
+
+  function findUserByFullName(name) {
+    return users.find((user) => `${user.firstName} ${user.lastName}` === name);
+  }
+
   function setActiveUser(id) {
-    const user = users.find((user) => user.id === id);
+    const user = findUserByID(id);
     dispatch({ type: "SET_ACT_USER", payload: { user } });
   }
 
+  function findMovements(user) {
+    return movements.find((movement) => user.movementId === movement.id);
+  }
+
   function setMovements(user) {
-    const userMovements = movements.find(
-      (movement) => user.movementId === movement.id
-    );
     dispatch({
       type: "SET_MOVS",
-      payload: { userMovements: userMovements.movements },
+      payload: { userMovements: findMovements(user).movements },
     });
   }
 
-  function addMovement(movement) {
-    dispatch({ type: "ADD_MOV", payload: { movement } });
+  function addMovement(movement, user) {
+    findMovements(user).movements.push(movement);
+    mirrorMovement(movement);
+  }
+
+  function mirrorMovement(movement) {
+    const copyMovement = { ...movement };
+    copyMovement.type = "deposit";
+    const receiver = findUserByFullName(movement.receiver);
+    findMovements(receiver).movements.push(copyMovement);
   }
 
   function calcBalance(movements) {
     const { balance, currency } = movements.reduce(
       (acc, item) => {
         return {
-          balance: acc.balance + item.amount,
+          balance:
+            item.type === "withdrawal"
+              ? acc.balance - item.amount
+              : acc.balance + item.amount,
           currency: item.currency,
         };
       },
