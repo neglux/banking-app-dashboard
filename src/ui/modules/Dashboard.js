@@ -52,6 +52,26 @@ const RateItem = () => {
 };
 
 const MovementItem = ({ sender, receiver, amount, currency, type, date }) => {
+  const { dateFormat } = strings.dashboard.containerMovement;
+
+  const { activeUser } = useGlobalContext();
+
+  function formatDate(isoDate) {
+    const date = new Date(isoDate);
+    const daysPassed = Math.round(
+      Math.abs((new Date() - date) / (1000 * 60 * 60 * 24))
+    );
+
+    if (daysPassed < 1) return dateFormat.today;
+    if (daysPassed === 1) return dateFormat.yesterday;
+    if (daysPassed < 7) return `${daysPassed} ${dateFormat.day}`;
+    if (daysPassed === 7) return dateFormat.week;
+    return Intl.DateTimeFormat(activeUser.language, {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+  }
   return (
     <li className="w-full h-fit px-8 py-2 bg-gray-50 mt-1 border-l-4 border-gray-800 text-sm">
       <div className="flex justify-between">
@@ -66,7 +86,7 @@ const MovementItem = ({ sender, receiver, amount, currency, type, date }) => {
           </h5>
           <span className="text-sm">{type}</span>
         </div>
-        <span>{date}</span>
+        <span>{formatDate(date)}</span>
       </div>
       <p className="mt-3">
         <span className="text-gray-400">{sender}</span>

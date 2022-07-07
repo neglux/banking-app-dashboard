@@ -14,6 +14,12 @@ export default {
     },
     containerMovement: {
       title: "Movements",
+      dateFormat: {
+        today: "today",
+        yesterday: "yesterday",
+        day: "days ago",
+        week: "a week ago",
+      },
     },
     containerBalance: {
       title: "Balance",
@@ -27,7 +33,7 @@ export default {
       currencyLabelText: "currency",
       dateLabelText: "date",
       feeLabelText: "fee",
-      sendBtn: "send",
+      sendBtn: "Send",
     },
     dropdownText: "Choose One",
   },
@@ -37,7 +43,8 @@ export default {
     loanReviewText:
       "Once the loan request arrives, it takes some time to review.",
     loanApprovalText: "We will get back to you in",
-    loanApprovalTime: "02:00",
+    loanApprovalTime: "30",
+    loanApprovalTimeUnit: "s",
     amountLabelText: "amount",
     approvalBtnText: "Send to Approval",
   },
