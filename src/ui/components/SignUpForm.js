@@ -7,7 +7,7 @@ import InputBox from "./InputBox";
 const SignUpForm = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const { login } = useGlobalContext();
+  const { login, setDialog } = useGlobalContext();
   return (
     <section className="text-center">
       <h3 className="mb-10 text-xl">Welcome</h3>
@@ -32,6 +32,11 @@ const SignUpForm = () => {
             login(username, password);
             setUsername("");
             setPassword("");
+            setDialog({
+              isShown: true,
+              type: "suc",
+              text: "successfully logged in",
+            });
           }}
         />
         <div className="mx-auto my-2 w-11/12 h-[1px] bg-gray-900 rounded-full"></div>

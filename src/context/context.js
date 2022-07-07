@@ -18,6 +18,7 @@ const AppProvider = ({ children }) => {
     activerUser: null,
     userMovements: [],
     balance: 0,
+    dialog: {},
   });
 
   function setActiveModuleIx(id) {
@@ -92,6 +93,10 @@ const AppProvider = ({ children }) => {
     });
   }
 
+  function setDialog(dialog) {
+    dispatch({ type: "SET_DLOG", payload: { dialog } });
+  }
+
   function logout() {
     dispatch({ type: "LOG_OUT" });
   }
@@ -105,7 +110,9 @@ const AppProvider = ({ children }) => {
         setMovements,
         addMovement,
         calcBalance,
+        setDialog,
         logout,
+        findUserByFullName,
       }}
     >
       {children}

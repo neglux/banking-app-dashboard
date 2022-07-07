@@ -6,10 +6,12 @@ const reducer = (state, action) => {
       return { ...state, activeUser: action.payload.user };
     case "SET_MOVS":
       return { ...state, userMovements: action.payload.userMovements };
-    case "LOG_OUT":
-      return { ...state, activeUser: null };
     case "CALC_BAL":
       return { ...state, balance: action.payload.balance };
+    case "SET_DLOG":
+      return { ...state, dialog: action.payload.dialog };
+    case "LOG_OUT":
+      return { ...state, activeUser: null };
     default:
       throw new Error(`Unhandled action type '${action.type}'`);
   }
