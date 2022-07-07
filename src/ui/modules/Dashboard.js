@@ -56,7 +56,11 @@ const MovementItem = ({ sender, receiver, amount, currency, type, date }) => {
     <li className="w-full h-fit px-8 py-2 bg-gray-50 mt-1 border-l-4 border-gray-800 text-sm">
       <div className="flex justify-between">
         <div>
-          <h5 className="font-bold text-xl">
+          <h5
+            className={`font-bold text-xl ${
+              type === "withdrawal" ? "text-red-500" : "text-green-600"
+            }`}
+          >
             {amount}&nbsp;
             {currency}
           </h5>
