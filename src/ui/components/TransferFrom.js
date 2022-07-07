@@ -23,7 +23,8 @@ const TransferFrom = () => {
   const [receiver, setReceiver] = useState();
   const [amount, setAmount] = useState();
   const [currency, setCurrency] = useState();
-  const { activeUser, addMovement } = useGlobalContext();
+  const { activeUser, addMovement, setDialog, findUserByFullName, balance } =
+    useGlobalContext();
 
   function getNames(data) {
     return data.map((item) => {
@@ -44,6 +45,23 @@ const TransferFrom = () => {
       type: type,
       date: date,
     };
+  }
+
+  function isValidTransfer(movement) {
+    const isValidSender = (sender) =>
+      sender && activeUser === findUserByFullName(sender);
+    const isValidReceiver = (receiver) =>
+      receiver && activeUser !== findUserByFullName(receiver);
+    const isValidAmount = (amount) => amount > 0 && amount < parseInt(balance);
+    const isValidCurrency = (currency) =>
+      currency && bank.currencies.includes(currency);
+
+    if (!activeUser) return false;
+    if (!isValidSender(movement.sender)) return false;
+    if (!isValidReceiver(movement.receiver)) return false;
+    if (!isValidAmount(movement.amount)) return false;
+    if (!isValidCurrency(movement.currency)) return false;
+    return true;
   }
 
   return (
@@ -89,7 +107,12 @@ const TransferFrom = () => {
             "withdrawal",
             new Date().toISOString()
           );
-          addMovement(movement, activeUser);
+          if (isValidTransfer(movement)) {
+            addMovement(movement, activeUser);
+            setDialog({ isShown: true, type: "suc", text: "Transfer Done" });
+          } else {
+            setDialog({ isShown: true, type: "err", text: "Invalid Transfer" });
+          }
         }}
       />
     </form>
