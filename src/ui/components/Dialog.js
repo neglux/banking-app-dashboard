@@ -10,16 +10,17 @@ const Dialog = ({ type, text }) => {
     return clearTimeout();
   }, []);
 
-  const color = type === "suc" ? "green" : "red";
+  const color = type === "suc" ? "bg-green-400" : "bg-red-400";
   return (
     <div
       className={`
        fixed
        bottom-16 right-24
        px-14 py-2
-       bg-${color}-400
-       rounded-sm shadow-lg
+       ${color}
+       rounded-md shadow-lg
        capitalize
+       font-semibold
        `}
     >
       {text}
