@@ -6,4 +6,5 @@ export default {
     EUR: 0.98,
     USD: 1.02,
   },
+  loanPercent: 0.1,
 };
