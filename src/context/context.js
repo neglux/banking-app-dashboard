@@ -62,7 +62,7 @@ const AppProvider = ({ children }) => {
 
   function addMovement(movement, user) {
     findMovements(user).movements.push(movement);
-    mirrorMovement(movement);
+    if (movement.type !== "loan") mirrorMovement(movement);
   }
 
   function mirrorMovement(movement) {
@@ -70,6 +70,17 @@ const AppProvider = ({ children }) => {
     copyMovement.type = "deposit";
     const receiver = findUserByFullName(movement.receiver);
     findMovements(receiver).movements.push(copyMovement);
+  }
+
+  function createMovement(sender, receiver, amount, currency, type, date) {
+    return {
+      sender: `${sender?.firstName} ${sender?.lastName}`,
+      receiver,
+      amount: parseInt(amount),
+      currency,
+      type: type,
+      date: date,
+    };
   }
 
   function calcBalance(movements) {
@@ -116,6 +127,7 @@ const AppProvider = ({ children }) => {
         addMovement,
         calcBalance,
         setDialog,
+        createMovement,
         logout,
         findUserByFullName,
       }}
