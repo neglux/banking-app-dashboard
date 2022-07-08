@@ -8,6 +8,7 @@ import Options from "../ui/modules/Options";
 
 import users from "../data/users";
 import movements from "../data/movements";
+import bank from "../data/bank";
 
 const AppContext = React.createContext();
 
@@ -74,12 +75,16 @@ const AppProvider = ({ children }) => {
   function calcBalance(movements) {
     const { balance, currency } = movements.reduce(
       (acc, item) => {
+        let convertedAmount = item.amount;
+        if (acc.currency !== item.currency) {
+          convertedAmount = bank.rates[acc.currency] * item.amount;
+        }
         return {
           balance:
             item.type === "withdrawal"
-              ? acc.balance - item.amount
-              : acc.balance + item.amount,
-          currency: item.currency,
+              ? acc.balance - convertedAmount
+              : acc.balance + convertedAmount,
+          currency: acc.currency,
         };
       },
       {

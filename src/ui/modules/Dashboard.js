@@ -3,6 +3,7 @@ import strings from "../../data/strings";
 import Section from "../components/Section";
 import Container from "../components/Container";
 import { useGlobalContext } from "../../context/context";
+import bank from "../../data/bank";
 
 const Dashboard = () => {
   const { containerRate, containerMovement, containerBalance } =
@@ -114,8 +115,8 @@ const BalanceItem = () => {
 
   return (
     <li className="my-auto mx-auto px-5 font-bold text-xl">
-      {balance}
-      {}
+      {parseFloat(balance).toFixed(2)}&nbsp;
+      {bank.defaultCurrency}
     </li>
   );
 };
