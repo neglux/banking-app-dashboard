@@ -1,10 +1,9 @@
 import React, { useContext, useReducer } from "react";
-import reducer from "../reducer";
+import reducer from "../hooks/reducer";
 
 import Dashboard from "../ui/modules/Dashboard";
 import Transfer from "../ui/modules/Transfer";
 import Loan from "../ui/modules/Loan";
-import Options from "../ui/modules/Options";
 
 import users from "../data/users";
 import movements from "../data/movements";
@@ -15,7 +14,7 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
     activeModuleIx: 0,
-    modules: [<Dashboard />, <Transfer />, <Loan />, <Options />],
+    modules: [<Dashboard />, <Transfer />, <Loan />],
     activerUser: null,
     userMovements: [],
     balance: 0,

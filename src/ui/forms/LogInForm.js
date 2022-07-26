@@ -1,16 +1,19 @@
 import React, { useState } from "react";
+import Button from "../components/Button";
+import Container from "../containers/Container";
+import InputBox from "../components/InputBox";
+import strings from "../../data/strings";
 import { useGlobalContext } from "../../context/context";
-import Button from "./Button";
-import Container from "./Container";
-import InputBox from "./InputBox";
 
-const SignUpForm = () => {
+const LogInForm = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const { login, setDialog } = useGlobalContext();
+  const { loginSuccess } = strings.dialogs;
+  const { title } = strings.loginForm;
   return (
     <section className="text-center">
-      <h3 className="mb-10 text-xl">Welcome</h3>
+      <h3 className="mb-10 text-xl capitalize">{title}</h3>
       <Container style="h-fit px-5 py-5 bg-gray-300 mb-10">
         <InputBox
           type="text"
@@ -35,15 +38,13 @@ const SignUpForm = () => {
             setDialog({
               isShown: true,
               type: "suc",
-              text: "successfully logged in",
+              text: loginSuccess,
             });
           }}
         />
-        <div className="mx-auto my-2 w-11/12 h-[1px] bg-gray-900 rounded-full"></div>
-        <Button text="Sign Up" />
       </div>
     </section>
   );
 };
 
-export default SignUpForm;
+export default LogInForm;

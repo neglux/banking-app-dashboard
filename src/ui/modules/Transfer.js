@@ -1,7 +1,7 @@
 import React from "react";
-import Section from "../components/Section";
-import Container from "../components/Container";
-import TransferFrom from "../components/TransferFrom";
+import Section from "../containers/Section";
+import Container from "../containers/Container";
+import TransferFrom from "../forms/TransferFrom";
 
 const Transfer = () => {
   return (

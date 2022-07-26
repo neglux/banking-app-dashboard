@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Container from "../components/Container";
-import Section from "../components/Section";
-import strings from "../../data/strings";
+import Container from "../containers/Container";
+import Section from "../containers/Section";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { useGlobalContext } from "../../context/context";
+import strings from "../../data/strings";
 import bank from "../../data/bank";
+import { useGlobalContext } from "../../context/context";
 
 const Loan = () => {
   const {
@@ -16,6 +16,7 @@ const Loan = () => {
     amountLabelText,
     approvalBtnText,
   } = strings.loan;
+  const { loanSuccess, loanFail } = strings.dialogs;
   const [time, setTime] = useState(loanApprovalTime);
   const [amount, setAmount] = useState();
   const [isAvailable, setIsAvailable] = useState(true);
@@ -32,7 +33,7 @@ const Loan = () => {
           setDialog({
             isShown: true,
             type: "suc",
-            text: "loan approved! check your account.",
+            text: loanSuccess,
           });
           const movement = createMovement(
             { firstName: "bank", lastName: "loan" },
@@ -47,7 +48,7 @@ const Loan = () => {
           setDialog({
             isShown: true,
             type: "err",
-            text: "we're sorry, you cannot request that loan amount",
+            text: loanFail,
           });
         }
         setTime(loanApprovalTime);

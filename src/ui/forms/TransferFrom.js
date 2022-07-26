@@ -1,12 +1,12 @@
 import React, { useState } from "react";
+import Dropdown from "../components/Dropdown";
+import Input from "../components/Input";
+import TextBox from "../components/TextBox";
+import Button from "../components/Button";
 import strings from "../../data/strings";
-import Dropdown from "./Dropdown";
-import Input from "./Input";
-import TextBox from "./TextBox";
 import users from "../../data/users";
 import bank from "../../data/bank";
 import { useGlobalContext } from "../../context/context";
-import Button from "./Button";
 
 const TransferFrom = () => {
   const {
@@ -20,6 +20,7 @@ const TransferFrom = () => {
       sendBtn,
     },
   } = strings.transfer;
+  const { transferSuccess, transferFail } = strings.dialogs;
   const [receiver, setReceiver] = useState();
   const [amount, setAmount] = useState();
   const [currency, setCurrency] = useState();
@@ -104,9 +105,9 @@ const TransferFrom = () => {
           );
           if (isValidTransfer(movement)) {
             addMovement(movement, activeUser);
-            setDialog({ isShown: true, type: "suc", text: "Transfer Done" });
+            setDialog({ isShown: true, type: "suc", text: transferSuccess });
           } else {
-            setDialog({ isShown: true, type: "err", text: "Invalid Transfer" });
+            setDialog({ isShown: true, type: "err", text: transferFail });
           }
         }}
       />

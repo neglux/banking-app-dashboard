@@ -1,16 +1,16 @@
 import React from "react";
+import Modal from "./ui/templates/Modal";
 import Navbar from "./ui/templates/Navbar";
 import Menu from "./ui/templates/Menu";
 import Viewer from "./ui/templates/Viewer";
-import { useGlobalContext } from "./context/context";
-import Modal from "./ui/templates/Modal";
-import SignUpForm from "./ui/components/SignUpForm";
+import LogInForm from "./ui/forms/LogInForm";
 import Dialog from "./ui/components/Dialog";
+import { useGlobalContext } from "./context/context";
 
 function App() {
   const { modules, activeModuleIx, activeUser, dialog } = useGlobalContext();
 
-  if (!activeUser) return <Modal form={<SignUpForm />} />;
+  if (!activeUser) return <Modal form={<LogInForm />} />;
   return (
     <>
       <Navbar />

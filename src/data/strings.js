@@ -5,13 +5,13 @@ export default {
     welcomeMsg: "Welcome back,",
     logoutBtnText: "Log Out",
   },
+  loginForm: {
+    title: "welcome",
+  },
   menu: {
-    sections: ["Dashboard", "Transfer", "Loan", "Options"],
+    sections: ["Dashboard", "Transfer", "Loan"],
   },
   dashboard: {
-    containerRate: {
-      title: "Currency Rates",
-    },
     containerMovement: {
       title: "Movements",
       dateFormat: {
@@ -47,5 +47,12 @@ export default {
     loanApprovalTimeUnit: "s",
     amountLabelText: "amount",
     approvalBtnText: "Send to Approval",
+  },
+  dialogs: {
+    loginSuccess: "successfully logged in",
+    transferSuccess: "transfer done",
+    transferFail: "invalid transfer",
+    loanSuccess: "loan approved! check your account",
+    loanFail: "we're sorry, you cannot request that loan amount",
   },
 };
