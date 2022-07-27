@@ -10,7 +10,7 @@ import users from "../../data/user/users";
 
 import { useGlobalContext } from "../../context/context";
 
-const TransferFrom = () => {
+const TransferForm = () => {
   const {
     form: {
       senderLabelText,
@@ -117,4 +117,4 @@ const TransferFrom = () => {
   );
 };
 
-export default TransferFrom;
+export default TransferForm;

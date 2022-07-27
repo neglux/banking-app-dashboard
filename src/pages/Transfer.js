@@ -1,13 +1,13 @@
 import React from "react";
 import Section from "../components/containers/Section";
 import Container from "../components/containers/Container";
-import TransferFrom from "../components/forms/TransferFrom";
+import TransferForm from "../components/forms/TransferForm";
 
 const Transfer = () => {
   return (
     <Section>
       <Container style="min-h-[550px]">
-        <TransferFrom />
+        <TransferForm />
       </Container>
     </Section>
   );
