@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import Dropdown from "../components/Dropdown";
-import Input from "../components/Input";
-import TextBox from "../components/TextBox";
-import Button from "../components/Button";
+import Dropdown from "../Inputs/Dropdown";
+import LabelInput from "../Inputs/LabelInput";
+import LabelTextBox from "../containers/LabelTextBox";
+import Button from "../Inputs/Button";
+
 import strings from "../../data/strings";
-import users from "../../data/users";
 import bank from "../../data/bank";
+import users from "../../data/user/users";
+
 import { useGlobalContext } from "../../context/context";
 
 const TransferFrom = () => {
@@ -67,7 +69,7 @@ const TransferFrom = () => {
         e.preventDefault();
       }}
     >
-      <TextBox
+      <LabelTextBox
         label={senderLabelText}
         text={`${activeUser.firstName} ${activeUser.lastName}`}
       />
@@ -77,8 +79,8 @@ const TransferFrom = () => {
         selectHandler={setReceiver}
       />
       <div className="flex items-center">
-        <Input
-          text={amountLabelText}
+        <LabelInput
+          label={amountLabelText}
           value={amount}
           changeHandler={setAmount}
         />
@@ -89,8 +91,8 @@ const TransferFrom = () => {
         />
       </div>
       <div className="flex items-center">
-        <TextBox label={dateLabelText} text={new Date().toDateString()} />
-        <TextBox label={feeLabelText} text={"$0.14"} />
+        <LabelTextBox label={dateLabelText} text={new Date().toDateString()} />
+        <LabelTextBox label={feeLabelText} text={"$0.14"} />
       </div>
       <Button
         text={sendBtn}

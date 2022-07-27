@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputBox = ({ type, placeholder, value, changeHandler }) => {
+const PlaceholderInput = ({ type, value, changeHandler, placeholder }) => {
   return (
     <input
       className="flex h-[30px] px-5 my-2 text-sm placeholder:capitalize rounded-md bg-gray-100 w-[250px] outline-none"
@@ -14,4 +14,4 @@ const InputBox = ({ type, placeholder, value, changeHandler }) => {
   );
 };
 
-export default InputBox;
+export default PlaceholderInput;

@@ -1,6 +1,6 @@
 import React from "react";
-import strings from "../../data/strings";
-import { useGlobalContext } from "../../context/context";
+import strings from "../data/strings";
+import { useGlobalContext } from "../context/context";
 
 const Menu = () => {
   const { sections } = strings.menu;

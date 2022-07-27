@@ -1,6 +1,6 @@
 import React from "react";
-import strings from "../../data/strings";
-import { useGlobalContext } from "../../context/context";
+import strings from "../data/strings";
+import { useGlobalContext } from "../context/context";
 
 const Navbar = () => {
   const { loginMsg, loginBtnText, welcomeMsg, logoutBtnText } = strings.navbar;

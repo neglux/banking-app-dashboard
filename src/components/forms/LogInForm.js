@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Button from "../components/Button";
 import Container from "../containers/Container";
-import InputBox from "../components/InputBox";
-import strings from "../../data/strings";
+import Button from "../Inputs/Button";
+import PlaceholderInput from "../Inputs/PlaceholderInput";
 import vault from "../../assets/vault.svg";
+import strings from "../../data/strings";
 import { useGlobalContext } from "../../context/context";
 
 const LogInForm = () => {
@@ -31,17 +31,17 @@ const LogInForm = () => {
           {title}
         </h3>
         <Container style="h-fit px-5 py-5 bg-gray-400 mb-10">
-          <InputBox
+          <PlaceholderInput
             type="text"
-            placeholder="username"
             value={username}
             changeHandler={setUsername}
+            placeholder="username"
           />
-          <InputBox
+          <PlaceholderInput
             type="password"
-            placeholder="password"
             value={password}
             changeHandler={setPassword}
+            placeholder="password"
           />
         </Container>
         <div className="flex flex-col">

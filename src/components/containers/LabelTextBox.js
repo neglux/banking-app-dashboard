@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextBox = ({ label, text }) => {
+const LabelTextBox = ({ label, text }) => {
   return (
     <div className="my-5">
       <label className="capitalize">{label}:</label>
@@ -9,4 +9,4 @@ const TextBox = ({ label, text }) => {
   );
 };
 
-export default TextBox;
+export default LabelTextBox;

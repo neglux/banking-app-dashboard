@@ -1,12 +1,12 @@
 import React, { useContext, useReducer } from "react";
 import reducer from "../hooks/reducer";
 
-import Dashboard from "../ui/modules/Dashboard";
-import Transfer from "../ui/modules/Transfer";
-import Loan from "../ui/modules/Loan";
+import Dashboard from "../pages/Dashboard";
+import Transfer from "../pages/Transfer";
+import Loan from "../pages/Loan";
 
-import users from "../data/users";
-import movements from "../data/movements";
+import users from "../data/user/users";
+import movements from "../data/user/movements";
 import bank from "../data/bank";
 
 const AppContext = React.createContext();

@@ -1,5 +1,5 @@
 import React from "react";
-import Overlay from "../components/Overlay";
+import Overlay from "./Overlay";
 
 const Modal = ({ form }) => {
   return (

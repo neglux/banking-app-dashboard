@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Container from "../containers/Container";
-import Section from "../containers/Section";
-import Input from "../components/Input";
-import Button from "../components/Button";
-import strings from "../../data/strings";
-import bank from "../../data/bank";
-import { useGlobalContext } from "../../context/context";
+import Container from "../components/containers/Container";
+import Section from "../components/containers/Section";
+import LabelInput from "../components/Inputs/LabelInput";
+import Button from "../components/Inputs/Button";
+import strings from "../data/strings";
+import bank from "../data/bank";
+import { useGlobalContext } from "../context/context";
 
 const Loan = () => {
   const {
@@ -91,8 +91,8 @@ const Loan = () => {
         </div>
         {isAvailable && (
           <div className="mt-40 h-full flex flex-col justify-evenly">
-            <Input
-              text={amountLabelText}
+            <LabelInput
+              label={amountLabelText}
               value={amount}
               changeHandler={setAmount}
             />
