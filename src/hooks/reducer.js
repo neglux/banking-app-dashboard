@@ -2,6 +2,8 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "SET_ACT_IX":
       return { ...state, activeModuleIx: action.payload.id };
+    case "HIDE_COOKIE_DLOG":
+      return { ...state, isCookieDialogVisible: false };
     case "SET_ACT_USER":
       return { ...state, activeUser: action.payload.user };
     case "SET_MOVS":

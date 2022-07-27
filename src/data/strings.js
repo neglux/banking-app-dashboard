@@ -54,5 +54,11 @@ export default {
     transferFail: "invalid transfer",
     loanSuccess: "loan approved! check your account",
     loanFail: "we're sorry, you cannot request that loan amount",
+    cookie: {
+      title: "we value your privacy",
+      text: "this website would collect cookies to deliver better user experience if it were real website",
+      agree: "accept all",
+      decline: "refuse non-essential cookies",
+    },
   },
 };

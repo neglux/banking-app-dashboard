@@ -19,6 +19,7 @@ const AppProvider = ({ children }) => {
     userMovements: [],
     balance: 0,
     dialog: {},
+    isCookieDialogVisible: true,
   });
 
   function setActiveModuleIx(id) {
@@ -33,6 +34,10 @@ const AppProvider = ({ children }) => {
       setActiveUser(validUser.id);
       setMovements(validUser);
     }
+  }
+
+  function hideCookieDialog() {
+    dispatch({ type: "HIDE_COOKIE_DLOG" });
   }
 
   function findUserByID(id) {
@@ -122,6 +127,7 @@ const AppProvider = ({ children }) => {
         ...state,
         setActiveModuleIx,
         login,
+        hideCookieDialog,
         setMovements,
         addMovement,
         calcBalance,
