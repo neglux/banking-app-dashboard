@@ -11,7 +11,7 @@ const LogInForm = () => {
   const [password, setPassword] = useState();
   const { login, setDialog } = useGlobalContext();
   const { loginSuccess } = strings.dialogs;
-  const { title } = strings.loginForm;
+  const { loginMsg } = strings.loginForm;
   return (
     <form
       className="text-center flex"
@@ -26,11 +26,11 @@ const LogInForm = () => {
         });
       }}
     >
-      <div className="mx-20 ">
+      <div className="mx-20">
         <h3 className="mt-14 mb-10 text-xl capitalize font-semibold tracking-wide">
-          {title}
+          {loginMsg}
         </h3>
-        <Container style="h-fit px-5 py-5 bg-gray-400 mb-10">
+        <Container style="h-fit px-5 py-5 bg-gray-600 mb-10">
           <PlaceholderInput
             type="text"
             value={username}
