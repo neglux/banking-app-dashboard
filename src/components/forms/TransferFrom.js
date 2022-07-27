@@ -74,7 +74,7 @@ const TransferFrom = () => {
         text={`${activeUser.firstName} ${activeUser.lastName}`}
       />
       <Dropdown
-        text={receiverLabelText}
+        label={receiverLabelText}
         data={getNames(users)}
         selectHandler={setReceiver}
       />
@@ -85,14 +85,14 @@ const TransferFrom = () => {
           changeHandler={setAmount}
         />
         <Dropdown
-          text={currencyLabelText}
+          label={currencyLabelText}
           data={bank.currencies}
           selectHandler={setCurrency}
         />
       </div>
       <div className="flex items-center">
         <LabelTextBox label={dateLabelText} text={new Date().toDateString()} />
-        <LabelTextBox label={feeLabelText} text={"$0.14"} />
+        <LabelTextBox label={feeLabelText} text={"$0.00"} />
       </div>
       <Button
         text={sendBtn}

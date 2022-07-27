@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { GrNext } from "react-icons/gr";
 import strings from "../../data/strings";
 
-const Dropdown = ({ text, data, selectHandler = () => {} }) => {
+const Dropdown = ({ label, data, selectHandler = () => {} }) => {
   const { dropdownText } = strings.transfer;
   const [selectedIx, setSelectedIx] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -12,7 +12,7 @@ const Dropdown = ({ text, data, selectHandler = () => {} }) => {
   }, [selectedIx]);
   return (
     <div className="flex my-4">
-      <label className="capitalize">{text}:</label>
+      <label className="capitalize">{label}:</label>
       <div className="ml-5">
         <div
           className="flex justify-between items-center w-[250px] h-[30px] bg-gray-300 cursor-pointer rounded-md"
