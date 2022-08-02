@@ -1,3 +1,7 @@
+import { MdSpaceDashboard } from "react-icons/md";
+import { FaMoneyCheckAlt } from "react-icons/fa";
+import { TbZoomMoney } from "react-icons/tb";
+
 export default {
   navbar: {
     loginBtnText: "Log In",
@@ -9,7 +13,11 @@ export default {
     loginMsg: "Login to get started",
   },
   menu: {
-    sections: ["Dashboard", "Transfer", "Loan"],
+    sections: [
+      { icon: <MdSpaceDashboard />, text: "Dashboard" },
+      { icon: <FaMoneyCheckAlt />, text: "Transfer" },
+      { icon: <TbZoomMoney />, text: "Loan" },
+    ],
   },
   dashboard: {
     containerMovement: {

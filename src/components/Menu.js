@@ -16,14 +16,15 @@ const Menu = () => {
         return (
           <li
             key={index}
-            className={`px-12 py-2 text-sm hover:bg-gray-600 cursor-pointer border-x-[1px] border-gray-600 ${
+            className={`flex items-center px-12 py-2 text-sm hover:bg-gray-600 cursor-pointer border-x-[1px] border-gray-600 ${
               isLastSection(index, sections) && "ml-auto"
             }`}
             onClick={() => {
               setActiveModuleIx(index);
             }}
           >
-            {item}
+            <i className="text-lg">{item.icon}</i>
+            <h5 className="ml-2">{item.text}</h5>
           </li>
         );
       })}
