@@ -11,7 +11,7 @@ const LogInForm = () => {
   const [password, setPassword] = useState();
   const { login, setDialog } = useGlobalContext();
   const { loginSuccess } = strings.dialogs;
-  const { loginMsg } = strings.loginForm;
+  const { loginMsg, loginBtnText } = strings.loginForm;
   return (
     <form
       className="text-center flex"
@@ -46,7 +46,7 @@ const LogInForm = () => {
         </Container>
         <div className="flex flex-col">
           <Button
-            text="Log In"
+            text={loginBtnText}
             clickHandler={() => {
               login(username, password);
               setUsername("");

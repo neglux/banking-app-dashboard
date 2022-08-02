@@ -4,13 +4,13 @@ import { TbZoomMoney } from "react-icons/tb";
 
 export default {
   navbar: {
-    loginBtnText: "Log In",
     welcomeMsg: "Welcome back,",
     logoutBtnText: "Log Out",
   },
   loginForm: {
     title: "welcome",
     loginMsg: "Login to get started",
+    loginBtnText: "Log In",
   },
   menu: {
     sections: [
