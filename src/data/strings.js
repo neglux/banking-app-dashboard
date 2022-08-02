@@ -1,11 +1,13 @@
 import { MdSpaceDashboard } from "react-icons/md";
 import { FaMoneyCheckAlt } from "react-icons/fa";
 import { TbZoomMoney } from "react-icons/tb";
+import { BiLogOut } from "react-icons/bi";
 
 export default {
   navbar: {
     welcomeMsg: "Welcome back,",
     logoutBtnText: "Log Out",
+    logoutBtnIcon: <BiLogOut />,
   },
   loginForm: {
     title: "welcome",

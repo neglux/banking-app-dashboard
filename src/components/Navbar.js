@@ -3,7 +3,7 @@ import strings from "../data/strings";
 import { useGlobalContext } from "../context/context";
 
 const Navbar = () => {
-  const { loginMsg, loginBtnText, welcomeMsg, logoutBtnText } = strings.navbar;
+  const { loginMsg, welcomeMsg, logoutBtnText, logoutBtnIcon } = strings.navbar;
   const { activeUser, logout } = useGlobalContext();
   return (
     <nav className="flex w-full items-center justify-between px-10 py-8 bg-gray-900 text-gray-100">
@@ -21,14 +21,15 @@ const Navbar = () => {
         </span>
       </div>
       <button
-        className="px-12 py-1 rounded-sm bg-gray-700 hover:bg-gray-600"
+        className="flex items-center px-12 py-1 rounded-sm bg-gray-700 hover:bg-gray-600"
         onClick={() => {
           if (activeUser) {
             logout();
           }
         }}
       >
-        {activeUser ? logoutBtnText : loginBtnText}
+        <i className="mr-1 text-lg">{logoutBtnIcon}</i>
+        <p>{logoutBtnText}</p>
       </button>
     </nav>
   );
