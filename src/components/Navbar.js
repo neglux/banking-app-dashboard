@@ -28,7 +28,7 @@ const Navbar = () => {
           }
         }}
       >
-        <i className="mr-1 text-lg">{logoutBtnIcon}</i>
+        <i className="mr-1 text-lg*">{logoutBtnIcon}</i>
         <p>{logoutBtnText}</p>
       </button>
     </nav>
