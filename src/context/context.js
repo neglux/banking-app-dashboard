@@ -1,10 +1,6 @@
 import React, { useContext, useReducer } from "react";
 import reducer from "../hooks/reducer";
 
-import Dashboard from "../pages/Dashboard";
-import Transfer from "../pages/Transfer";
-import Loan from "../pages/Loan";
-
 import users from "../data/user/users";
 import movements from "../data/user/movements";
 import bank from "../data/bank";
@@ -13,44 +9,18 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
-    activeModuleIx: 0,
-    modules: [<Dashboard />, <Transfer />, <Loan />],
-    activerUser: null,
     userMovements: [],
     balance: 0,
     dialog: {},
     isCookieDialogVisible: true,
   });
 
-  function setActiveModuleIx(id) {
-    dispatch({ type: "SET_ACT_IX", payload: { id } });
-  }
-
-  function login(username, password) {
-    const validUser = users.find(
-      (user) => user?.username === username && user?.password === password
-    );
-    if (validUser) {
-      setActiveUser(validUser.id);
-      setMovements(validUser);
-    }
-  }
-
   function hideCookieDialog() {
     dispatch({ type: "HIDE_COOKIE_DLOG" });
   }
 
-  function findUserByID(id) {
-    return users.find((user) => user.id === id);
-  }
-
   function findUserByFullName(name) {
     return users.find((user) => `${user.firstName} ${user.lastName}` === name);
-  }
-
-  function setActiveUser(id) {
-    const user = findUserByID(id);
-    dispatch({ type: "SET_ACT_USER", payload: { user } });
   }
 
   function findMovements(user) {
@@ -117,23 +87,16 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "SET_DLOG", payload: { dialog } });
   }
 
-  function logout() {
-    dispatch({ type: "LOG_OUT" });
-  }
-
   return (
     <AppContext.Provider
       value={{
         ...state,
-        setActiveModuleIx,
-        login,
         hideCookieDialog,
         setMovements,
         addMovement,
         calcBalance,
         setDialog,
         createMovement,
-        logout,
         findUserByFullName,
       }}
     >

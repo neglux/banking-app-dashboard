@@ -1,10 +1,10 @@
 import React from "react";
 import strings from "../data/strings";
-import { useGlobalContext } from "../context/context";
+import { useAuthContext } from "../context/auth.context";
 
 const Navbar = () => {
   const { loginMsg, welcomeMsg, logoutBtnText, logoutBtnIcon } = strings.navbar;
-  const { activeUser, logout } = useGlobalContext();
+  const { activeUser, logout } = useAuthContext();
   return (
     <nav className="flex w-full items-center justify-between px-10 py-8 bg-gray-900 text-gray-100">
       <div className="flex flex-col">

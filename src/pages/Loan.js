@@ -6,6 +6,7 @@ import Button from "../components/Inputs/Button";
 import strings from "../data/strings";
 import bank from "../data/bank";
 import { useGlobalContext } from "../context/context";
+import { useAuthContext } from "../context/auth.context";
 
 const Loan = () => {
   const {
@@ -20,8 +21,10 @@ const Loan = () => {
   const [time, setTime] = useState(loanApprovalTime);
   const [amount, setAmount] = useState();
   const [isAvailable, setIsAvailable] = useState(true);
-  const { activeUser, userMovements, setDialog, createMovement, addMovement } =
+  const { userMovements, setDialog, createMovement, addMovement } =
     useGlobalContext();
+
+  const { activeUser } = useAuthContext();
 
   function startTimer() {
     let seconds = parseInt(loanApprovalTime);

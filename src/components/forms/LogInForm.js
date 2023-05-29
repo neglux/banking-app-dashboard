@@ -5,11 +5,13 @@ import PlaceholderInput from "../Inputs/PlaceholderInput";
 import vault from "../../assets/vault.svg";
 import strings from "../../data/strings";
 import { useGlobalContext } from "../../context/context";
+import { useAuthContext } from "../../context/auth.context";
 
 const LogInForm = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const { login, setDialog } = useGlobalContext();
+  const { setDialog } = useGlobalContext();
+  const { login } = useAuthContext();
   const { loginSuccess } = strings.dialogs;
   const { loginMsg, loginBtnText } = strings.loginForm;
   return (

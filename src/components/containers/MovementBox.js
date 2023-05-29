@@ -1,11 +1,11 @@
 import React from "react";
 import strings from "../../data/strings";
-import { useGlobalContext } from "../../context/context";
+import { useAuthContext } from "../../context/auth.context";
 
 const MovementBox = ({ sender, receiver, amount, currency, type, date }) => {
   const { dateFormat } = strings.dashboard.containerMovement;
 
-  const { activeUser } = useGlobalContext();
+  const { activeUser } = useAuthContext();
 
   function formatDate(isoDate) {
     const date = new Date(isoDate);

@@ -9,6 +9,7 @@ import bank from "../../data/bank";
 import users from "../../data/user/users";
 
 import { useGlobalContext } from "../../context/context";
+import { useAuthContext } from "../../context/auth.context";
 
 const TransferForm = () => {
   const {
@@ -27,13 +28,14 @@ const TransferForm = () => {
   const [amount, setAmount] = useState();
   const [currency, setCurrency] = useState();
   const {
-    activeUser,
     addMovement,
     setDialog,
     findUserByFullName,
     balance,
     createMovement,
   } = useGlobalContext();
+
+  const { activeUser } = useAuthContext();
 
   function getNames(data) {
     return data.map((item) => {
