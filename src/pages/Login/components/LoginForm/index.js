@@ -6,11 +6,13 @@ import vault from "../../../../assets/vault.svg";
 import strings from "../../../../data/strings";
 import { useGlobalContext } from "../../../../context/context";
 import { useAuthContext } from "../../../../context/auth.context";
+import { useNavigate } from "react-router-dom";
 
 const LogInForm = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const { setDialog } = useGlobalContext();
+  const navigate = useNavigate();
   const { login } = useAuthContext();
   const { loginSuccess } = strings.dialogs;
   const { loginMsg, loginBtnText } = strings.loginForm;
@@ -21,6 +23,7 @@ const LogInForm = () => {
         login(username, password);
         setUsername("");
         setPassword("");
+        navigate("/");
         setDialog({
           isShown: true,
           type: "suc",
@@ -53,6 +56,7 @@ const LogInForm = () => {
               login(username, password);
               setUsername("");
               setPassword("");
+              navigate("/");
               setDialog({
                 isShown: true,
                 type: "suc",

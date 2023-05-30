@@ -16,9 +16,9 @@ export default {
   },
   menu: {
     sections: [
-      { icon: <MdSpaceDashboard />, text: "Dashboard" },
-      { icon: <FaMoneyCheckAlt />, text: "Transfer" },
-      { icon: <TbZoomMoney />, text: "Loan" },
+      { icon: <MdSpaceDashboard />, text: "Dashboard", to: "/" },
+      { icon: <FaMoneyCheckAlt />, text: "Transfer", to: "/transfer" },
+      { icon: <TbZoomMoney />, text: "Loan", to: "/loan" },
     ],
   },
   dashboard: {

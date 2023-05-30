@@ -3,6 +3,7 @@ import Dashboard from "../pages/Dashboard";
 import Loan from "../pages/Loan";
 import Transfer from "../pages/Transfer";
 import Root from "./components/root";
+import Login from "../pages/Login";
 
 export const router = createBrowserRouter([
   {
@@ -22,5 +23,9 @@ export const router = createBrowserRouter([
         element: <Transfer />,
       },
     ],
+  },
+  {
+    path: "/auth",
+    element: <Login />,
   },
 ]);

@@ -1,10 +1,18 @@
 import React from "react";
 import strings from "../data/strings";
 import { useAuthContext } from "../context/auth.context";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { loginMsg, welcomeMsg, logoutBtnText, logoutBtnIcon } = strings.navbar;
   const { activeUser, logout } = useAuthContext();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate("/auth");
+    logout();
+  };
+
   return (
     <nav className="flex w-full items-center justify-between px-10 py-8 bg-gray-900 text-gray-100">
       <div className="flex flex-col">
@@ -22,11 +30,7 @@ const Navbar = () => {
       </div>
       <button
         className="flex items-center px-12 py-1 rounded-sm bg-gray-700 hover:bg-gray-600"
-        onClick={() => {
-          if (activeUser) {
-            logout();
-          }
-        }}
+        onClick={handleLogout}
       >
         <i className="mr-1 text-lg*">{logoutBtnIcon}</i>
         <p>{logoutBtnText}</p>
