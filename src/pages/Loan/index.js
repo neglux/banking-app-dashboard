@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Container from "../components/containers/Container";
-import Section from "../components/containers/Section";
-import LabelInput from "../components/Inputs/LabelInput";
-import Button from "../components/Inputs/Button";
-import strings from "../data/strings";
-import bank from "../data/bank";
-import { useGlobalContext } from "../context/context";
-import { useAuthContext } from "../context/auth.context";
+import Container from "../../components/containers/Container";
+import Section from "../../components/containers/Section";
+import LabelInput from "../../components/Inputs/LabelInput";
+import Button from "../../components/Inputs/Button";
+import strings from "../../data/strings";
+import bank from "../../data/bank";
+import { useGlobalContext } from "../../context/context";
+import { useAuthContext } from "../../context/auth.context";
 
 const Loan = () => {
   const {

@@ -1,6 +1,6 @@
 import React from "react";
-import strings from "../../data/strings";
-import { useAuthContext } from "../../context/auth.context";
+import strings from "../../../../data/strings";
+import { useAuthContext } from "../../../../context/auth.context";
 
 const MovementBox = ({ sender, receiver, amount, currency, type, date }) => {
   const { dateFormat } = strings.dashboard.containerMovement;

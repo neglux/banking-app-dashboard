@@ -1,10 +1,10 @@
 import React from "react";
-import Section from "../components/containers/Section";
-import Container from "../components/containers/Container";
-import MovementBox from "../components/containers/MovementBox";
-import BalanceBox from "../components/containers/BalanceBox";
-import strings from "../data/strings";
-import { useGlobalContext } from "../context/context";
+import Section from "../../components/containers/Section";
+import Container from "../../components/containers/Container";
+import MovementBox from "./components/MovementBox";
+import BalanceBox from "./components/BalanceBox";
+import strings from "../../data/strings";
+import { useGlobalContext } from "../../context/context";
 
 const Dashboard = () => {
   const { containerMovement, containerBalance } = strings.dashboard;

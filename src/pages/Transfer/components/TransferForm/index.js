@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import Dropdown from "../Inputs/Dropdown";
-import LabelInput from "../Inputs/LabelInput";
-import LabelTextBox from "../containers/LabelTextBox";
-import Button from "../Inputs/Button";
+import Dropdown from "../../../../components/Inputs/Dropdown";
+import LabelInput from "../../../../components/Inputs/LabelInput";
+import LabelTextBox from "../../../../components/containers/LabelTextBox";
+import Button from "../../../../components/Inputs/Button";
 
-import strings from "../../data/strings";
-import bank from "../../data/bank";
-import users from "../../data/user/users";
+import strings from "../../../../data/strings";
+import bank from "../../../../data/bank";
+import users from "../../../../data/user/users";
 
-import { useGlobalContext } from "../../context/context";
-import { useAuthContext } from "../../context/auth.context";
+import { useGlobalContext } from "../../../../context/context";
+import { useAuthContext } from "../../../../context/auth.context";
 
 const TransferForm = () => {
   const {

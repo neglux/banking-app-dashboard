@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import bank from "../../data/bank";
-import { useGlobalContext } from "../../context/context";
+import bank from "../../../../data/bank";
+import { useGlobalContext } from "../../../../context/context";
 
 const BalanceBox = () => {
   const { balance, calcBalance, userMovements } = useGlobalContext();

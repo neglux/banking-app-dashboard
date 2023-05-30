@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Container from "../containers/Container";
-import Button from "../Inputs/Button";
-import PlaceholderInput from "../Inputs/PlaceholderInput";
-import vault from "../../assets/vault.svg";
-import strings from "../../data/strings";
-import { useGlobalContext } from "../../context/context";
-import { useAuthContext } from "../../context/auth.context";
+import Container from "../../../../components/containers/Container";
+import Button from "../../../../components/Inputs/Button";
+import PlaceholderInput from "../../../../components/Inputs/PlaceholderInput";
+import vault from "../../../../assets/vault.svg";
+import strings from "../../../../data/strings";
+import { useGlobalContext } from "../../../../context/context";
+import { useAuthContext } from "../../../../context/auth.context";
 
 const LogInForm = () => {
   const [username, setUsername] = useState();
