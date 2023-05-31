@@ -11,7 +11,6 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
     userMovements: [],
     balance: 0,
-    dialog: {},
     isCookieDialogVisible: true,
   });
 
@@ -83,10 +82,6 @@ const AppProvider = ({ children }) => {
     });
   }
 
-  function setDialog(dialog) {
-    dispatch({ type: "SET_DLOG", payload: { dialog } });
-  }
-
   return (
     <AppContext.Provider
       value={{
@@ -95,7 +90,6 @@ const AppProvider = ({ children }) => {
         setMovements,
         addMovement,
         calcBalance,
-        setDialog,
         createMovement,
         findUserByFullName,
       }}

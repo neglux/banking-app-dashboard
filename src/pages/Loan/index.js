@@ -7,6 +7,7 @@ import strings from "../../data/strings";
 import bank from "../../data/bank";
 import { useGlobalContext } from "../../context/context";
 import { useAuthContext } from "../../context/auth.context";
+import { toast } from "react-toastify";
 
 const Loan = () => {
   const {
@@ -21,8 +22,7 @@ const Loan = () => {
   const [time, setTime] = useState(loanApprovalTime);
   const [amount, setAmount] = useState();
   const [isAvailable, setIsAvailable] = useState(true);
-  const { userMovements, setDialog, createMovement, addMovement } =
-    useGlobalContext();
+  const { userMovements, createMovement, addMovement } = useGlobalContext();
 
   const { activeUser } = useAuthContext();
 
@@ -33,11 +33,7 @@ const Loan = () => {
       if (seconds < 0) {
         clearInterval(timer);
         if (reviewLoan(amount)) {
-          setDialog({
-            isShown: true,
-            type: "suc",
-            text: loanSuccess,
-          });
+          toast.success(loanSuccess);
           const movement = createMovement(
             { firstName: "bank", lastName: "loan" },
             `${activeUser.firstName} ${activeUser.lastName}`,
@@ -48,11 +44,7 @@ const Loan = () => {
           );
           addMovement(movement, activeUser);
         } else {
-          setDialog({
-            isShown: true,
-            type: "err",
-            text: loanFail,
-          });
+          toast.warning(loanFail);
         }
         setTime(loanApprovalTime);
         setIsAvailable(true);

@@ -4,33 +4,32 @@ import Button from "../../../../components/Inputs/Button";
 import PlaceholderInput from "../../../../components/Inputs/PlaceholderInput";
 import vault from "../../../../assets/vault.svg";
 import strings from "../../../../data/strings";
-import { useGlobalContext } from "../../../../context/context";
 import { useAuthContext } from "../../../../context/auth.context";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const LogInForm = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const { setDialog } = useGlobalContext();
   const navigate = useNavigate();
   const { login } = useAuthContext();
-  const { loginSuccess } = strings.dialogs;
+  const { loginSuccess, LOGIN_FAIL } = strings.dialogs;
   const { loginMsg, loginBtnText } = strings.loginForm;
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const user = login(username, password);
+    if (!user) return toast.warning(LOGIN_FAIL);
+
+    setUsername("");
+    setPassword("");
+    navigate("/");
+    return toast.success(loginSuccess);
+  };
+
   return (
-    <form
-      className="text-center flex"
-      action={() => {
-        login(username, password);
-        setUsername("");
-        setPassword("");
-        navigate("/");
-        setDialog({
-          isShown: true,
-          type: "suc",
-          text: loginSuccess,
-        });
-      }}
-    >
+    <form className="text-center flex" action={handleLogin}>
       <div className="mx-20">
         <h3 className="mt-14 mb-10 text-xl capitalize font-semibold tracking-wide">
           {loginMsg}
@@ -50,20 +49,7 @@ const LogInForm = () => {
           />
         </Container>
         <div className="flex flex-col">
-          <Button
-            text={loginBtnText}
-            clickHandler={() => {
-              login(username, password);
-              setUsername("");
-              setPassword("");
-              navigate("/");
-              setDialog({
-                isShown: true,
-                type: "suc",
-                text: loginSuccess,
-              });
-            }}
-          />
+          <Button text={loginBtnText} clickHandler={handleLogin} />
         </div>
         <footer className="flex w-fit mx-auto h-fit mt-20 font-semibold text-sm text-slate-600">
           <p>

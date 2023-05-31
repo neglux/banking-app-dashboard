@@ -60,6 +60,7 @@ export default {
   },
   dialogs: {
     loginSuccess: "successfully logged in",
+    LOGIN_FAIL: "Invalid credentials",
     transferSuccess: "transfer done",
     transferFail: "invalid transfer",
     loanSuccess: "loan approved! check your account",

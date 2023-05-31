@@ -4,11 +4,10 @@ import Navbar from "../../components/Navbar";
 import CookieDialog from "../../components/dialogs/CookieDialog";
 import Menu from "../../components/Menu";
 import Viewer from "../../components/containers/Viewer";
-import Dialog from "../../components/dialogs/Dialog";
 import { useAuthContext } from "../../context/auth.context";
 
 const Root = () => {
-  const { dialog, isCookieDialogVisible } = useGlobalContext();
+  const { isCookieDialogVisible } = useGlobalContext();
   const { activeUser } = useAuthContext();
 
   if (!activeUser) return <Navigate to="/auth" />;
@@ -20,7 +19,6 @@ const Root = () => {
       <Viewer>
         <Outlet />
       </Viewer>
-      {dialog?.isShown && <Dialog {...dialog} />}
     </>
   );
 };

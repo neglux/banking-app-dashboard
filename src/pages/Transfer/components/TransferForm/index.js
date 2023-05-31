@@ -10,6 +10,7 @@ import users from "../../../../data/user/users";
 
 import { useGlobalContext } from "../../../../context/context";
 import { useAuthContext } from "../../../../context/auth.context";
+import { toast } from "react-toastify";
 
 const TransferForm = () => {
   const {
@@ -27,13 +28,8 @@ const TransferForm = () => {
   const [receiver, setReceiver] = useState();
   const [amount, setAmount] = useState();
   const [currency, setCurrency] = useState();
-  const {
-    addMovement,
-    setDialog,
-    findUserByFullName,
-    balance,
-    createMovement,
-  } = useGlobalContext();
+  const { addMovement, findUserByFullName, balance, createMovement } =
+    useGlobalContext();
 
   const { activeUser } = useAuthContext();
 
@@ -109,9 +105,9 @@ const TransferForm = () => {
           );
           if (isValidTransfer(movement)) {
             addMovement(movement, activeUser);
-            setDialog({ isShown: true, type: "suc", text: transferSuccess });
+            toast.success(transferSuccess);
           } else {
-            setDialog({ isShown: true, type: "err", text: transferFail });
+            toast.warning(transferFail);
           }
         }}
       />

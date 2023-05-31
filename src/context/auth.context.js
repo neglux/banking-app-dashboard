@@ -1,10 +1,30 @@
 import { createContext, useContext, useState } from "react";
-import { login, logout, getActiveUser } from "../helpers/auth.helper";
+import users from "../data/user/users";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [activeUser, _] = useState(getActiveUser());
+  const [activeUser, setActiveUser] = useState(getActiveUser());
+
+  function login(username, password) {
+    const validUser = users.find(
+      (user) => user?.username === username && user?.password === password
+    );
+
+    if (!validUser) return null;
+
+    setActiveUser(validUser);
+    localStorage.setItem("user", JSON.stringify(validUser));
+    return validUser;
+  }
+
+  function getActiveUser() {
+    return JSON.parse(localStorage.getItem("user")) || null;
+  }
+
+  function logout() {
+    return localStorage.clear();
+  }
 
   return (
     <AuthContext.Provider value={{ login, logout, activeUser }}>
