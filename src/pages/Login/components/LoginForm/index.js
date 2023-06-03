@@ -58,6 +58,7 @@ const LogInForm = () => {
               href="https://github.com/neglux"
               target="_blank"
               className="text-slate-900"
+              rel="noreferrer"
             >
               neglux
             </a>
@@ -68,7 +69,7 @@ const LogInForm = () => {
         <img
           className="h-[450px] rounded-r-2xl object-cover"
           src={vault}
-          alt="vault image"
+          alt="vault"
         />
       </aside>
     </form>
