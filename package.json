@@ -32,7 +32,15 @@
       "eslint:recommended"
     ],
     "rules": {
-      "react/style-prop-object": 0
+      "react/style-prop-object": 0,
+      "import/no-anonymous-default-export": [
+        "error",
+        {
+          "allowArray": true,
+          "allowObject": true
+        }
+      ],
+      "no-unused-vars": "warn"
     }
   },
   "browserslist": {

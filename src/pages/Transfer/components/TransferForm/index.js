@@ -36,6 +36,8 @@ const TransferForm = () => {
   function getNames(data) {
     return data.map((item) => {
       if (!isActiveUser(item)) return `${item?.firstName} ${item?.lastName}`;
+
+      return ``;
     });
   }
 

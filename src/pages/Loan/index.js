@@ -58,12 +58,14 @@ const Loan = () => {
       const now = new Date();
       const maxAmount = userMovements.reduce((acc, mov) => {
         if (mov.type !== "deposit") return acc;
+
         const movementDate = new Date(mov.date);
         if ((now - movementDate) / (1000 * 60 * 60 * 24) < 30) {
           if (mov.amount > acc) return mov.amount;
           else return acc;
         }
       }, 0);
+
       return amount < maxAmount + maxAmount * bank.loanPercent;
     };
 
