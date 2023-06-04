@@ -1,5 +1,4 @@
 import React from "react";
-import Container from "../../../../components/containers/Container";
 import Button from "../../../../components/Inputs/Button";
 import Input from "../../../../components/Inputs/Input";
 import strings from "../../../../data/strings";
@@ -29,17 +28,24 @@ const LogInForm = () => {
   });
 
   return (
-    <form className="text-center" onSubmit={handleLogin}>
-      <div className="mx-20">
-        <h3 className="text-xl capitalize font-semibold tracking-wide">
-          {loginMsg}
-        </h3>
+    <form onSubmit={handleLogin}>
+      <div className="mx-10">
+        <div className="mb-16">
+          <h2>caspianbank</h2>
+          <h3 className="text-md font-semibold tracking-wide">{loginMsg}</h3>
+        </div>
         <FormProvider control={control} errors={errors}>
-          <Input label="username" required />
-          <Input label="password" type="password" required />
+          <div className="flex flex-col gap-4 my-10 w-[250px]">
+            <Input label="username" required />
+            <Input label="password" type="password" required />
+          </div>
         </FormProvider>
-        <div className="flex flex-col">
-          <Button type="submit" text={loginBtnText} />
+        <Button type="submit" text={loginBtnText} />
+        <div className="w-fit text-sm mx-auto mt-8">
+          Don't have an account{" "}
+          <a className="font-semibold" href="">
+            Sign up
+          </a>
         </div>
       </div>
     </form>
