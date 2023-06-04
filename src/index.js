@@ -9,13 +9,16 @@ import "react-toastify/dist/ReactToastify.css";
 import AppProvider from "./context/context";
 import AuthProvider from "./context/auth.context";
 import { ToastContainer } from "react-toastify";
+import { MantineProvider } from "@mantine/core";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AuthProvider>
       <AppProvider>
-        <RouterProvider router={router} />
+        <MantineProvider>
+          <RouterProvider router={router} />
+        </MantineProvider>
         <ToastContainer position="bottom-right" autoClose={1500} />
       </AppProvider>
     </AuthProvider>

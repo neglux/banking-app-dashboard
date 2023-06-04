@@ -31,15 +31,13 @@ const LogInForm = () => {
   return (
     <form className="text-center" onSubmit={handleLogin}>
       <div className="mx-20">
-        <h3 className="mt-14 mb-10 text-xl capitalize font-semibold tracking-wide">
+        <h3 className="text-xl capitalize font-semibold tracking-wide">
           {loginMsg}
         </h3>
-        <Container style="h-fit px-5 py-5 bg-gray-600 mb-10">
-          <FormProvider control={control} errors={errors}>
-            <Input label="username" required />
-            <Input label="password" type="password" required />
-          </FormProvider>
-        </Container>
+        <FormProvider control={control} errors={errors}>
+          <Input label="username" required />
+          <Input label="password" type="password" required />
+        </FormProvider>
         <div className="flex flex-col">
           <Button type="submit" text={loginBtnText} />
         </div>

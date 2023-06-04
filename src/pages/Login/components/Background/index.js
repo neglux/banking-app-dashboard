@@ -1,10 +1,10 @@
 import React from "react";
 
-const Layout = ({ children }) => {
+const Background = ({ children }) => {
   return (
     <>
       <section className="absolute flex w-screen h-screen justify-center items-center">
-        <div className="relative bg-gray-50 z-10 w-fit h-fit rounded-2xl shadow-lg">
+        <div className="relative bg-gray-50 z-10 w-fit h-fit rounded-2xl shadow-lg py-20">
           {children}
         </div>
       </section>
@@ -13,4 +13,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+export default Background;
