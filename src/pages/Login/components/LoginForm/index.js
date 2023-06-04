@@ -42,7 +42,7 @@ const LogInForm = () => {
         </FormProvider>
         <Button type="submit" text={loginBtnText} />
         <div className="w-fit text-sm mx-auto mt-8">
-          Don't have an account{" "}
+          Don't have an account?{" "}
           <a className="font-semibold" href="">
             Sign up
           </a>

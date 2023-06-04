@@ -1,31 +1,56 @@
 import React from "react";
 import strings from "../data/strings";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Navbar, Stack, Tooltip } from "@mantine/core";
+import { useAuthContext } from "../context/auth.context";
+import { FiLogOut } from "react-icons/fi";
 
 const Menu = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { logout } = useAuthContext();
   const { sections } = strings.menu;
 
-  function isLastSection(index, array) {
-    return index === array.length - 1;
-  }
+  const handleLogout = () => {
+    navigate("/auth");
+    logout();
+  };
 
   return (
-    <menu className="flex w-full bg-gray-700 text-gray-100">
-      {sections.map((item, index) => {
-        return (
-          <Link
-            to={item.to}
-            key={index}
-            className={`flex items-center px-12 py-2 text-sm hover:bg-gray-600 cursor-pointer border-x-[1px] border-gray-600 ${
-              isLastSection(index, sections) && "ml-auto"
-            }`}
-          >
-            <i className="text-lg">{item.icon}</i>
-            <h5 className="ml-2">{item.text}</h5>
-          </Link>
-        );
-      })}
-    </menu>
+    <Navbar height={"85vh"} className="bg-slate-100">
+      <Navbar.Section>
+        <Stack className="mt-5" justify="center" align="center" spacing={10}>
+          {sections.map((item, index) => {
+            return (
+              <Tooltip label={item.text} position="right">
+                <Link
+                  to={item.to}
+                  key={index}
+                  className={`flex p-2 rounded-md hover:bg-slate-200 text-slate-500 ${
+                    location.pathname === item.to &&
+                    "bg-slate-300 hover:bg-slate-300"
+                  }`}
+                >
+                  <i className="text-lg">{item.icon}</i>
+                </Link>
+              </Tooltip>
+            );
+          })}
+        </Stack>
+      </Navbar.Section>
+      <Navbar.Section className="mt-auto">
+        <Stack className="mb-5" justify="center" align="center" spacing={10}>
+          <Tooltip label="Log out" position="right">
+            <button
+              className="flex p-2 rounded-md hover:bg-slate-100 text-slate-500"
+              onClick={handleLogout}
+            >
+              <FiLogOut />
+            </button>
+          </Tooltip>
+        </Stack>
+      </Navbar.Section>
+    </Navbar>
   );
 };
 
