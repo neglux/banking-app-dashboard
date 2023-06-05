@@ -17,7 +17,7 @@ const Menu = () => {
   };
 
   return (
-    <Navbar height={"85vh"} className="bg-slate-100">
+    <Navbar height={"87vh"} className="bg-slate-100">
       <Navbar.Section>
         <Stack className="mt-5" justify="center" align="center" spacing={10}>
           {sections.map((item, index) => {
