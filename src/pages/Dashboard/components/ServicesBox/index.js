@@ -1,8 +1,8 @@
 import { Anchor, Group, SimpleGrid, Text, UnstyledButton } from "@mantine/core";
 import React from "react";
-import AnimatedIcon from "../../../../components/containers/AnimatedIcon";
 import { services } from "../../../../data/services";
 import Container from "../../../../components/containers/Container";
+import AnimatedIcon from "../../../../components/containers/AnimatedIcon";
 
 const ServicesBox = () => {
   return (
@@ -16,19 +16,25 @@ const ServicesBox = () => {
       </Group>
       <Container style="px-2 py-4">
         <SimpleGrid cols={3}>
-          {services.map((service) => (
-            <UnstyledButton
-              key={service.id}
-              className="flex flex-col items-center justify-center p-3 bg-gray-50 rounded-md shadow-sm"
-            >
-              <AnimatedIcon icon={service.icon} color={service.color} />
-              <Text className="mt-2 text-sm">{service.text}</Text>
-            </UnstyledButton>
-          ))}
+          <Services />
         </SimpleGrid>
       </Container>
     </>
   );
 };
 
+const Services = () =>
+  services.map((service) => <ServiceItem data={service} />);
+
+const ServiceItem = ({ data }) => {
+  return (
+    <UnstyledButton
+      key={data.id}
+      className="flex flex-col items-center justify-center p-3 bg-gray-50 rounded-md shadow-sm"
+    >
+      <AnimatedIcon icon={data.icon} color={data.color} />
+      <Text className="mt-2 text-sm">{data.text}</Text>
+    </UnstyledButton>
+  );
+};
 export default ServicesBox;
