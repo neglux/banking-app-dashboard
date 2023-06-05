@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Dropdown from "../../../../components/Inputs/Dropdown";
-import LabelInput from "../../../../components/Inputs/LabelInput";
-import LabelTextBox from "../../../../components/containers/LabelTextBox";
 import Button from "../../../../components/Inputs/Button";
+import Input from "../../../../components/Inputs/Input";
 
 import strings from "../../../../data/strings";
 import bank from "../../../../data/bank";
@@ -11,6 +10,7 @@ import users from "../../../../data/user/users";
 import { useGlobalContext } from "../../../../context/context";
 import { useAuthContext } from "../../../../context/auth.context";
 import { toast } from "react-toastify";
+import { FormProvider, useForm } from "react-hook-form";
 
 const TransferForm = () => {
   const {
@@ -18,7 +18,6 @@ const TransferForm = () => {
       senderLabelText,
       receiverLabelText,
       amountLabelText,
-      currencyLabelText,
       dateLabelText,
       feeLabelText,
       sendBtn,
@@ -26,24 +25,10 @@ const TransferForm = () => {
   } = strings.transfer;
   const { transferSuccess, transferFail } = strings.dialogs;
   const [receiver, setReceiver] = useState();
-  const [amount, setAmount] = useState();
-  const [currency, setCurrency] = useState();
   const { addMovement, findUserByFullName, balance, createMovement } =
     useGlobalContext();
 
   const { activeUser } = useAuthContext();
-
-  function getNames(data) {
-    return data.map((item) => {
-      if (!isActiveUser(item)) return `${item?.firstName} ${item?.lastName}`;
-
-      return ``;
-    });
-  }
-
-  function isActiveUser(user) {
-    return activeUser === user;
-  }
 
   function isValidTransfer(movement) {
     const isValidSender = (sender) =>
@@ -62,57 +47,53 @@ const TransferForm = () => {
     return true;
   }
 
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleTransfer = handleSubmit((values) => {
+    const movement = createMovement(
+      values.activeUser,
+      values.receiver,
+      values.amount,
+      values.currency,
+      "withdrawal",
+      new Date().toISOString()
+    );
+    if (isValidTransfer(movement)) {
+      addMovement(movement, activeUser);
+      toast.success(transferSuccess);
+    } else {
+      toast.warning(transferFail);
+    }
+  });
+
+  const handleFilter = (user) => {
+    return user.id !== activeUser.id;
+  };
+
+  const handleMap = (user) => `${user.firstName} ${user.lastName}`;
+
   return (
-    <form
-      className="ml-40 my-20"
-      onSubmit={(e) => {
-        e.preventDefault();
-      }}
-    >
-      <LabelTextBox
-        label={senderLabelText}
-        text={`${activeUser.firstName} ${activeUser.lastName}`}
-      />
-      <Dropdown
-        label={receiverLabelText}
-        data={getNames(users)}
-        selectHandler={setReceiver}
-      />
-      <div className="flex items-center">
-        <LabelInput
-          label={amountLabelText}
-          value={amount}
-          changeHandler={setAmount}
-        />
+    <form className="ml-40 my-20" onSubmit={handleTransfer}>
+      <FormProvider control={control} errors={errors}>
+        <Input label={senderLabelText} disabled />
         <Dropdown
-          label={currencyLabelText}
-          data={bank.currencies}
-          selectHandler={setCurrency}
+          label={receiverLabelText}
+          data={users.filter(handleFilter).map(handleMap)}
+          handleSelect={setReceiver}
         />
-      </div>
-      <div className="flex items-center">
-        <LabelTextBox label={dateLabelText} text={new Date().toDateString()} />
-        <LabelTextBox label={feeLabelText} text={"$0.00"} />
-      </div>
-      <Button
-        text={sendBtn}
-        clickHandler={() => {
-          const movement = createMovement(
-            activeUser,
-            receiver,
-            amount,
-            currency,
-            "withdrawal",
-            new Date().toISOString()
-          );
-          if (isValidTransfer(movement)) {
-            addMovement(movement, activeUser);
-            toast.success(transferSuccess);
-          } else {
-            toast.warning(transferFail);
-          }
-        }}
-      />
+        <div className="flex items-center">
+          <Input label={amountLabelText} type="currency" />
+        </div>
+        <div className="flex items-center">
+          <Input label={dateLabelText} disabled />
+          <Input label={feeLabelText} disabled />
+        </div>
+        <Button text={sendBtn} />
+      </FormProvider>
     </form>
   );
 };
