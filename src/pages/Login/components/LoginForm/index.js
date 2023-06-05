@@ -23,7 +23,7 @@ const LogInForm = () => {
     const user = login(data.username, data.password);
     if (!user) return toast.warning(LOGIN_FAIL);
 
-    navigate("/");
+    navigate("/", { replace: true });
     return toast.success(loginSuccess);
   });
 

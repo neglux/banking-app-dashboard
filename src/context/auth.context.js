@@ -23,6 +23,7 @@ const AuthProvider = ({ children }) => {
   }
 
   function logout() {
+    setActiveUser(null);
     return localStorage.clear();
   }
 

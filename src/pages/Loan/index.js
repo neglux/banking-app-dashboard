@@ -8,6 +8,7 @@ import bank from "../../data/bank";
 import { useGlobalContext } from "../../context/context";
 import { useAuthContext } from "../../context/auth.context";
 import { toast } from "react-toastify";
+import DocumentHead from "../../components/DocumentHead";
 
 const Loan = () => {
   const {
@@ -74,6 +75,7 @@ const Loan = () => {
 
   return (
     <Section>
+      <DocumentHead title="Loan | Caspianbank" />
       <Container style="px-10 py-5 h-[550px]">
         <div>
           <div className="my-10">

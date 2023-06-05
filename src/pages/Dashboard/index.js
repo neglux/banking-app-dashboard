@@ -7,6 +7,7 @@ import strings from "../../data/strings";
 import { useGlobalContext } from "../../context/context";
 import { Grid, Text } from "@mantine/core";
 import ServicesBox from "./components/ServicesBox";
+import DocumentHead from "../../components/DocumentHead";
 
 const Dashboard = () => {
   const { containerMovement, containerBalance } = strings.dashboard;
@@ -24,6 +25,7 @@ const Dashboard = () => {
   return (
     <Section>
       <Grid>
+        <DocumentHead title="Dashboard | Caspianbank" />
         <Grid.Col xs={8}>
           <article>
             <Text className="font-semibold">{containerMovement.title}</Text>
