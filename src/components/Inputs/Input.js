@@ -1,4 +1,4 @@
-import { NativeSelect, PasswordInput, TextInput } from "@mantine/core";
+import { NativeSelect, PasswordInput, Select, TextInput } from "@mantine/core";
 import React, { useCallback } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import bank from "../../data/bank";
@@ -8,6 +8,7 @@ const Input = ({
   required = false,
   type = "text",
   disabled = false,
+  data = [],
 }) => {
   const { control, errors } = useFormContext();
 
@@ -29,10 +30,21 @@ const Input = ({
             type="number"
             error={errors[label]?.type}
             placeholder={label}
-            {...field}
             rightSection={<NativeSelect data={bank.currencies} />}
             rightSectionWidth={80}
             disabled={disabled}
+            {...field}
+          />
+        );
+
+      if (type === "select")
+        return (
+          <Select
+            label={label}
+            placeholder="Choose One"
+            data={data}
+            error={errors[label]?.type}
+            {...field}
           />
         );
 
