@@ -1,11 +1,11 @@
 import React from "react";
-import { useGlobalContext } from "../../context/context";
 import strings from "../../data/strings";
 import BinaryButtons from "../Inputs/BinaryButtons";
+import { useGlobalContext } from "../../context/context";
 
 const CookieDialog = () => {
   const { cookie } = strings.dialogs;
-  const { hideCookieDialog } = useGlobalContext();
+  const { handleCookieAcceptance } = useGlobalContext();
   return (
     <div className="flex justify-evenly items-center py-1 bg-[#ECEB98]">
       <div>
@@ -15,15 +15,11 @@ const CookieDialog = () => {
       <BinaryButtons
         positiveOption={{
           text: cookie.agree,
-          clickHandler: () => {
-            hideCookieDialog();
-          },
+          clickHandler: handleCookieAcceptance,
         }}
         negativeOption={{
           text: cookie.decline,
-          clickHandler: () => {
-            hideCookieDialog();
-          },
+          clickHandler: handleCookieAcceptance,
         }}
       />
     </div>

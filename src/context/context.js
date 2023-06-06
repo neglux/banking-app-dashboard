@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useMemo, useReducer, useState } from "react";
 import reducer from "../hooks/reducer";
 
 import users from "../data/user/users";
@@ -11,11 +11,21 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
     userMovements: [],
     balance: 0,
-    isCookieDialogVisible: true,
   });
 
-  function hideCookieDialog() {
-    dispatch({ type: "HIDE_COOKIE_DLOG" });
+  const [cookieState, setCookieState] = useState("default");
+
+  const showCookieDialog = useMemo(() => {
+    const acceptance = localStorage.getItem("cookie-acceptance");
+    console.log(acceptance);
+    if (acceptance) return false;
+
+    return true;
+  }, [cookieState]);
+
+  function handleCookieAcceptance(preference) {
+    localStorage.setItem("cookie-acceptance", JSON.stringify(preference));
+    setCookieState("changed");
   }
 
   function findUserByFullName(name) {
@@ -86,7 +96,8 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         ...state,
-        hideCookieDialog,
+        showCookieDialog,
+        handleCookieAcceptance,
         setMovements,
         addMovement,
         calcBalance,

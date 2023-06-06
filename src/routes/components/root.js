@@ -8,13 +8,12 @@ import { useAuthContext } from "../../context/auth.context";
 import { Grid } from "@mantine/core";
 
 const Root = () => {
-  const { isCookieDialogVisible } = useGlobalContext();
+  const { showCookieDialog } = useGlobalContext();
   const { activeUser } = useAuthContext();
-
   if (!activeUser) return <Navigate to="/auth" />;
   return (
     <>
-      {isCookieDialogVisible && <CookieDialog />}
+      {showCookieDialog && <CookieDialog />}
       <Grid gutter={0}>
         <Grid.Col xs={12}>
           <Navbar />
