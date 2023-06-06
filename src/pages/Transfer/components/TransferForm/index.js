@@ -23,9 +23,7 @@ const TransferForm = () => {
     },
   });
 
-  const handleTransfer = handleSubmit((values) => {
-    console.log(values);
-  });
+  const handleTransfer = handleSubmit((values) => {});
 
   const handleFilter = (user) => user.id !== activeUser.id;
 

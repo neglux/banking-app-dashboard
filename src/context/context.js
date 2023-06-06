@@ -17,7 +17,6 @@ const AppProvider = ({ children }) => {
 
   const showCookieDialog = useMemo(() => {
     const acceptance = localStorage.getItem("cookie-acceptance");
-    console.log(acceptance);
     if (acceptance) return false;
 
     return true;
