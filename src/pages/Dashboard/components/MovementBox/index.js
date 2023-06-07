@@ -1,4 +1,3 @@
-import React from "react";
 import strings from "../../../../data/strings";
 import { useAuthContext } from "../../../../context/auth.context";
 

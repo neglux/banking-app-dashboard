@@ -1,4 +1,3 @@
-import React from "react";
 import Section from "../../components/containers/Section";
 import Container from "../../components/containers/Container";
 import BalanceBox from "./components/BalanceBox";

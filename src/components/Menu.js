@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Navbar, Stack, Tooltip, UnstyledButton } from "@mantine/core";
 import { useAuthContext } from "../context/auth.context";
@@ -14,8 +13,12 @@ const Menu = () => {
         <Stack className="mt-5" justify="center" align="center" spacing={10}>
           {sections.map((item) => {
             if (item.id === "log-out")
-              return <Navbar.BottomItem item={item} handler={logout} />;
-            return <Navbar.Item item={item} location={location} />;
+              return (
+                <Navbar.BottomItem key={item.id} item={item} handler={logout} />
+              );
+            return (
+              <Navbar.Item key={item.id} item={item} location={location} />
+            );
           })}
         </Stack>
       </Navbar.Section>

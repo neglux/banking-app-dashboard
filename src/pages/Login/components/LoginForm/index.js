@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "../../../../components/Inputs/Button";
 import Input from "../../../../components/Inputs/Input";
 import { useAuthContext } from "../../../../context/auth.context";
@@ -14,7 +13,12 @@ const LogInForm = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      username: "",
+      password: "",
+    },
+  });
 
   const handleLogin = handleSubmit((data) => {
     const user = login(data.username, data.password);

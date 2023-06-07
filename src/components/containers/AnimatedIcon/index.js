@@ -1,5 +1,3 @@
-import React from "react";
-
 const AnimatedIcon = ({ icon, color }) => {
   return (
     <lord-icon

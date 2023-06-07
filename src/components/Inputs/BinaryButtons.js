@@ -1,5 +1,3 @@
-import React from "react";
-
 const BinaryButtons = ({ positiveOption, negativeOption }) => {
   return (
     <div className="text-sm">

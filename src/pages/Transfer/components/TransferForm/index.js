@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "../../../../components/Inputs/Button";
 import Input from "../../../../components/Inputs/Input";
 
@@ -18,6 +17,7 @@ const TransferForm = () => {
     defaultValues: {
       sender: `${activeUser.firstName} ${activeUser.lastName}`,
       date: new Date().toDateString(),
+      amount: 0,
       currency: "USD",
       fee: 0.0,
     },

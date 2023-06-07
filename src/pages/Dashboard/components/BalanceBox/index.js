@@ -1,4 +1,3 @@
-import React from "react";
 import bank from "../../../../data/bank";
 
 const BalanceBox = () => {

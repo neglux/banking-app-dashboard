@@ -1,4 +1,3 @@
-import React from "react";
 import { useAuthContext } from "../context/auth.context";
 
 const Navbar = () => {

@@ -1,5 +1,4 @@
 import { Anchor, Group, SimpleGrid, Text, UnstyledButton } from "@mantine/core";
-import React from "react";
 import { services } from "../../../../data/services";
 import Container from "../../../../components/containers/Container";
 import AnimatedIcon from "../../../../components/containers/AnimatedIcon";
@@ -24,7 +23,7 @@ const ServicesBox = () => {
 };
 
 const Services = () =>
-  services.map((service) => <ServiceItem data={service} />);
+  services.map((service) => <ServiceItem key={service.id} data={service} />);
 
 const ServiceItem = ({ data }) => {
   return (

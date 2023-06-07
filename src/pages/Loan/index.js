@@ -1,4 +1,3 @@
-import React from "react";
 import Section from "../../components/containers/Section";
 import DocumentHead from "../../components/DocumentHead";
 

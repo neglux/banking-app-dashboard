@@ -9,13 +9,16 @@ import "react-toastify/dist/ReactToastify.css";
 import AuthProvider from "./context/auth.context";
 import { MantineProvider } from "@mantine/core";
 import Notification from "./components/Notification";
+import { HelmetProvider } from "react-helmet-async";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
     <AuthProvider>
       <MantineProvider>
-        <RouterProvider router={router} />
+        <HelmetProvider>
+          <RouterProvider router={router} />
+        </HelmetProvider>
       </MantineProvider>
       <Notification />
     </AuthProvider>
