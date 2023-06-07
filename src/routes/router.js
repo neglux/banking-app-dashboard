@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import Root from "./components/root";
-import Login from "../pages/Login";
 import { lazy } from "react";
+import Root from "./components/root";
+import Login from "src/pages/Login";
 
-const Dashboard = lazy(() => import("../pages/Dashboard"));
-const Loan = lazy(() => import("../pages/Loan"));
-const Transfer = lazy(() => import("../pages/Transfer"));
+const Dashboard = lazy(() => import("src/pages/Dashboard"));
+const Loan = lazy(() => import("src/pages/Loan"));
+const Transfer = lazy(() => import("src/pages/Transfer"));
 
 export const router = createBrowserRouter([
   {

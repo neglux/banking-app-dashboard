@@ -1,4 +1,4 @@
-import bank from "../../../../data/bank";
+import bank from "src/data/bank";
 
 const BalanceBox = () => {
   return (

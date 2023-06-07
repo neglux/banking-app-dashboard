@@ -1,9 +1,9 @@
-import Section from "../../components/containers/Section";
-import Container from "../../components/containers/Container";
-import BalanceBox from "./components/BalanceBox";
 import { Grid, Text } from "@mantine/core";
+import DocumentHead from "src/components/DocumentHead";
+import Section from "src/components/containers/Section";
+import BalanceBox from "./components/BalanceBox";
 import ServicesBox from "./components/ServicesBox";
-import DocumentHead from "../../components/DocumentHead";
+import Container from "src/components/containers/Container";
 
 const Dashboard = () => {
   return (

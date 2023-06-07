@@ -1,7 +1,7 @@
-import Section from "../../components/containers/Section";
-import Container from "../../components/containers/Container";
+import DocumentHead from "src/components/DocumentHead";
+import Container from "src/components/containers/Container";
+import Section from "src/components/containers/Section";
 import TransferForm from "./components/TransferForm";
-import DocumentHead from "../../components/DocumentHead";
 
 const Transfer = () => {
   return (

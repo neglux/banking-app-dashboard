@@ -1,4 +1,4 @@
-import { IconBank, IconCreditCard, IconWallet } from "../assets/Icons";
+import { IconBank, IconCreditCard, IconWallet } from "src/assets/Icons";
 
 export const services = [
   {

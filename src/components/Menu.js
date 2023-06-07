@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Navbar, Stack, Tooltip, UnstyledButton } from "@mantine/core";
-import { useAuthContext } from "../context/auth.context";
-import { sections } from "../data/sections";
+import { sections } from "src/data/sections";
+import { useAuthContext } from "src/context/auth.context";
 
 const Menu = () => {
   const location = useLocation();

@@ -1,7 +1,7 @@
 import { NativeSelect, PasswordInput, Select, TextInput } from "@mantine/core";
 import { useCallback } from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import bank from "../../data/bank";
+import bank from "src/data/bank";
 
 const Input = ({
   label,

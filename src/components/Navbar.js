@@ -1,4 +1,4 @@
-import { useAuthContext } from "../context/auth.context";
+import { useAuthContext } from "src/context/auth.context";
 
 const Navbar = () => {
   const { activeUser } = useAuthContext();

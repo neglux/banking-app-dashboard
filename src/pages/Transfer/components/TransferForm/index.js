@@ -1,10 +1,8 @@
-import Button from "../../../../components/Inputs/Button";
-import Input from "../../../../components/Inputs/Input";
-
-import users from "../../../../data/user/users";
-
-import { useAuthContext } from "../../../../context/auth.context";
 import { FormProvider, useForm } from "react-hook-form";
+import Button from "src/components/Inputs/Button";
+import Input from "src/components/Inputs/Input";
+import { useAuthContext } from "src/context/auth.context";
+import users from "src/data/user/users";
 
 const TransferForm = () => {
   const { activeUser } = useAuthContext();

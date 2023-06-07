@@ -1,9 +1,9 @@
-import Button from "../../../../components/Inputs/Button";
-import Input from "../../../../components/Inputs/Input";
-import { useAuthContext } from "../../../../context/auth.context";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FormProvider, useForm } from "react-hook-form";
+import { useAuthContext } from "src/context/auth.context";
+import Button from "src/components/Inputs/Button";
+import Input from "src/components/Inputs/Input";
 
 const LogInForm = () => {
   const navigate = useNavigate();
