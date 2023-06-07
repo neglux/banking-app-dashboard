@@ -1,5 +1,5 @@
-import Head from "src/components/Head";
-import Section from "src/components/containers/Section";
+import Head from "src/components/common/Head";
+import Section from "src/components/layout/Section";
 
 const Loan = () => {
   return (

@@ -1,6 +1,6 @@
 import { Anchor, Group, SimpleGrid, Text, UnstyledButton } from "@mantine/core";
-import AnimatedIcon from "src/components/containers/AnimatedIcon";
-import Container from "src/components/containers/Container";
+import AnimatedIcon from "src/components/common/AnimatedIcon";
+import Container from "src/components/layout/Container";
 import { services } from "src/data/services";
 
 const ServicesBox = () => {

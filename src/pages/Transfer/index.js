@@ -1,6 +1,6 @@
-import Head from "src/components/Head";
-import Container from "src/components/containers/Container";
-import Section from "src/components/containers/Section";
+import Head from "src/components/common/Head";
+import Container from "src/components/layout/Container";
+import Section from "src/components/layout/Section";
 import TransferForm from "./components/TransferForm";
 
 const Transfer = () => {

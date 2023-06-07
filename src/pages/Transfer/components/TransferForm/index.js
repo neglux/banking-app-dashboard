@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form";
-import Button from "src/components/Inputs/Button";
-import Input from "src/components/Inputs/Input";
+import Button from "src/components/inputs/Button";
+import Input from "src/components/inputs/Input";
 import { useAuthContext } from "src/context/auth.context";
 import users from "src/data/user/users";
 

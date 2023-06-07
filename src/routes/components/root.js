@@ -2,9 +2,9 @@ import { Navigate, Outlet } from "react-router-dom";
 import { Grid } from "@mantine/core";
 import { Suspense } from "react";
 import { useAuthContext } from "src/context/auth.context";
-import Navbar from "src/components/Navbar";
-import Menu from "src/components/Menu";
-import Viewer from "src/components/containers/Viewer";
+import Navbar from "src/components/layout/Navbar";
+import Menu from "src/components/layout/Menu";
+import Viewer from "src/components/layout/Viewer";
 
 const Root = () => {
   const { activeUser } = useAuthContext();

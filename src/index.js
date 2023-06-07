@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import AuthProvider from "./context/auth.context";
 import { MantineProvider } from "@mantine/core";
-import Notification from "./components/Notification";
+import Notification from "./components/common/Notification";
 import { HelmetProvider } from "react-helmet-async";
 
 const root = createRoot(document.getElementById("root"));

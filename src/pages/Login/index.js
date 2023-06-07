@@ -1,4 +1,4 @@
-import Head from "src/components/Head";
+import Head from "src/components/common/Head";
 import Background from "./components/Background";
 import LogInForm from "./components/LoginForm";
 
