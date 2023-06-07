@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const DocumentHead = ({ title }) => {
+const Head = ({ title }) => {
   return (
     <Helmet>
       <title>{title}</title>
@@ -8,4 +8,4 @@ const DocumentHead = ({ title }) => {
   );
 };
 
-export default DocumentHead;
+export default Head;

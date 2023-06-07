@@ -1,10 +1,10 @@
-import DocumentHead from "src/components/DocumentHead";
+import Head from "src/components/Head";
 import Section from "src/components/containers/Section";
 
 const Loan = () => {
   return (
     <Section>
-      <DocumentHead title="Loan | Caspianbank" />
+      <Head title="Loan | Caspianbank" />
     </Section>
   );
 };

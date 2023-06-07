@@ -1,11 +1,11 @@
-import DocumentHead from "src/components/DocumentHead";
+import Head from "src/components/Head";
 import Background from "./components/Background";
 import LogInForm from "./components/LoginForm";
 
 const Login = () => {
   return (
     <Background>
-      <DocumentHead title="Login | Caspianbank" />
+      <Head title="Login | Caspianbank" />
       <LogInForm />
     </Background>
   );

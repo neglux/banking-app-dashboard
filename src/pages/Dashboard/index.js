@@ -1,5 +1,5 @@
 import { Grid, Text } from "@mantine/core";
-import DocumentHead from "src/components/DocumentHead";
+import Head from "src/components/Head";
 import Section from "src/components/containers/Section";
 import BalanceBox from "./components/BalanceBox";
 import ServicesBox from "./components/ServicesBox";
@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
     <Section>
       <Grid>
-        <DocumentHead title="Dashboard | Caspianbank" />
+        <Head title="Dashboard | Caspianbank" />
         <Grid.Col xs={8}>
           <article>
             <Text className="font-semibold">Movements</Text>
