@@ -1,7 +1,6 @@
 import { Grid, Text } from "@mantine/core";
 import Head from "src/components/common/Head";
 import Section from "src/components/layout/Section";
-import BalanceBox from "./components/BalanceBox";
 import ServicesBox from "./components/ServicesBox";
 import Container from "src/components/layout/Container";
 
@@ -17,9 +16,7 @@ const Dashboard = () => {
           </article>
           <article className="w-fit ml-auto my-5">
             <h3>Balance</h3>
-            <Container style="min-h-[50px] min-w-[120px] w-fit">
-              <BalanceBox />
-            </Container>
+            <Container style="min-h-[50px] min-w-[120px] w-fit"></Container>
           </article>
         </Grid.Col>
         <Grid.Col span={4}>
