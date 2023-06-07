@@ -1,68 +1,49 @@
-import { NativeSelect, PasswordInput, Select, TextInput } from "@mantine/core";
+import { PasswordInput, Select, TextInput } from "@mantine/core";
 import { useCallback } from "react";
-import { Controller, useFormContext } from "react-hook-form";
-import bank from "src/data/bank";
+import { Controller } from "react-hook-form";
+import { useFormContext } from "src/context/form.context";
+
+const NumberInput = (props) => {
+  return <TextInput type="number" {...props} />;
+};
 
 const Input = ({
-  label,
+  name,
   required = false,
   type = "text",
   disabled = false,
   data = [],
+  ...restProps
 }) => {
   const { control, errors } = useFormContext();
 
-  const getField = useCallback(
-    ({ field }) => {
-      if (type === "password")
-        return (
-          <PasswordInput
-            error={errors[label]?.type}
-            placeholder={label}
-            disabled={disabled}
-            {...field}
-          />
-        );
+  const getInputComponent = useCallback(() => {
+    switch (type) {
+      case "password":
+        return PasswordInput;
+      case "select":
+        return Select;
+      case "number":
+        return NumberInput;
+      default:
+        return TextInput;
+    }
+  }, [type]);
 
-      if (type === "currency")
-        return (
-          <TextInput
-            type="number"
-            error={errors[label]?.type}
-            placeholder={label}
-            rightSection={<NativeSelect data={bank.currencies} />}
-            rightSectionWidth={80}
-            disabled={disabled}
-            {...field}
-          />
-        );
-
-      if (type === "select")
-        return (
-          <Select
-            label={label}
-            placeholder="Choose One"
-            data={data}
-            error={errors[label]?.type}
-            {...field}
-          />
-        );
-
-      return (
-        <TextInput
-          error={errors[label]?.type}
-          placeholder={label}
-          disabled={disabled}
-          {...field}
-        />
-      );
-    },
-    [type, errors]
+  const InputComponent = getInputComponent();
+  const getField = ({ field }) => (
+    <InputComponent
+      data={data}
+      error={errors[name]?.type}
+      disabled={disabled}
+      {...field}
+      {...restProps}
+    />
   );
 
   return (
     <Controller
-      name={label}
+      name={name}
       control={control}
       rules={{ required }}
       render={getField}

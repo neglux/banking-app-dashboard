@@ -2,9 +2,9 @@ import { createContext, useContext } from "react";
 
 const FormContext = createContext();
 
-export const FormProvider = ({ children, controler, errors }) => {
+export const FormProvider = ({ children, control, errors }) => {
   return (
-    <FormContext.Provider value={{ controler, errors }}>
+    <FormContext.Provider value={{ control, errors }}>
       {children}
     </FormContext.Provider>
   );

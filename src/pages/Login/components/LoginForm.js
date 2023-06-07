@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { FormProvider, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useAuthContext } from "src/context/auth.context";
 import Button from "src/components/inputs/Button";
 import Input from "src/components/inputs/Input";
+import { FormProvider } from "src/context/form.context";
 
 const LogInForm = () => {
   const navigate = useNavigate();
@@ -39,14 +40,19 @@ const LogInForm = () => {
         </div>
         <FormProvider control={control} errors={errors}>
           <div className="flex flex-col gap-4 my-10 w-[250px]">
-            <Input label="username" required />
-            <Input label="password" type="password" required />
+            <Input name="username" placeholder="Username" required />
+            <Input
+              name="password"
+              placeholder="Password"
+              type="password"
+              required
+            />
           </div>
         </FormProvider>
         <Button type="submit" text="Login" />
         <div className="w-fit text-sm mx-auto mt-8">
           Don't have an account?{" "}
-          <a className="font-semibold" href="">
+          <a className="font-semibold" href="#">
             Sign up
           </a>
         </div>

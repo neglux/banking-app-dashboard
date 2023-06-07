@@ -1,7 +1,9 @@
-import { FormProvider, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import Button from "src/components/inputs/Button";
 import Input from "src/components/inputs/Input";
 import { useAuthContext } from "src/context/auth.context";
+import { FormProvider } from "src/context/form.context";
+import bank from "src/data/bank";
 import users from "src/data/user/users";
 
 const TransferForm = () => {
@@ -30,19 +32,27 @@ const TransferForm = () => {
   return (
     <form className="ml-40 my-20" onSubmit={handleTransfer}>
       <FormProvider control={control} errors={errors}>
-        <Input label="sender" disabled required />
+        <Input name="sender" label="Sender" disabled required />
         <Input
           type="select"
-          label="receiver"
+          name="receiver"
+          label="Receiver"
+          placeholder="Choose One"
           data={users.filter(handleFilter).map(handleMap)}
           required
         />
         <div className="flex items-center">
-          <Input type="currency" label="amount" required />
+          <Input
+            name="amount"
+            label="Amount"
+            type="number"
+            units={bank.currencies}
+            required
+          />
         </div>
         <div className="flex items-center">
-          <Input label="date" disabled required />
-          <Input label="fee" disabled required />
+          <Input name="date" label="Date" disabled required />
+          <Input name="fee" label="Fee" disabled required />
         </div>
         <Button type="submit" text="Send" />
       </FormProvider>
