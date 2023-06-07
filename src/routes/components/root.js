@@ -4,6 +4,7 @@ import Menu from "../../components/Menu";
 import Viewer from "../../components/containers/Viewer";
 import { useAuthContext } from "../../context/auth.context";
 import { Grid } from "@mantine/core";
+import { Suspense } from "react";
 
 const Root = () => {
   const { activeUser } = useAuthContext();
@@ -19,7 +20,9 @@ const Root = () => {
         </Grid.Col>
         <Grid.Col xs={11.5}>
           <Viewer>
-            <Outlet />
+            <Suspense fallback={<>loading..</>}>
+              <Outlet />
+            </Suspense>
           </Viewer>
         </Grid.Col>
       </Grid>
