@@ -3,7 +3,6 @@ import Button from "src/components/common/Button";
 import Input from "src/components/common/Input";
 import { useAuthContext } from "src/context/auth.context";
 import { FormProvider } from "src/context/form.context";
-import bank from "src/data/bank";
 import users from "src/data/user/users";
 import { getCurrentTime } from "src/utils/date.utils";
 
@@ -43,13 +42,7 @@ const TransferForm = () => {
           required
         />
         <div className="flex items-center">
-          <Input
-            name="amount"
-            label="Amount"
-            type="number"
-            units={bank.currencies}
-            required
-          />
+          <Input name="amount" label="Amount" type="number" required />
         </div>
         <div className="flex items-center">
           <Input name="date" label="Date" disabled required />
