@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
-import Root from "./components/root";
-import Auth from "src/pages/Auth";
+import Root from "./components/root.route";
+import Auth from "src/routes/components/auth.route";
 
 const Dashboard = lazy(() => import("src/pages/Dashboard"));
 const Loan = lazy(() => import("src/pages/Loan"));
