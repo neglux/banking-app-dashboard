@@ -1,11 +1,11 @@
 import { PasswordInput, Select, TextInput } from "@mantine/core";
-import { useCallback } from "react";
+import { forwardRef, useCallback } from "react";
 import { Controller } from "react-hook-form";
 import { useFormContext } from "src/context/form.context";
 
-const NumberInput = (props) => {
-  return <TextInput type="number" {...props} />;
-};
+const NumberInput = forwardRef((props, ref) => {
+  return <TextInput ref={ref} type="number" {...props} />;
+});
 
 const Input = ({
   name,
