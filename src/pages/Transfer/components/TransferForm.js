@@ -5,6 +5,7 @@ import { useAuthContext } from "src/context/auth.context";
 import { FormProvider } from "src/context/form.context";
 import bank from "src/data/bank";
 import users from "src/data/user/users";
+import { getCurrentTime } from "src/utils/date.utils";
 
 const TransferForm = () => {
   const { activeUser } = useAuthContext();
@@ -16,7 +17,7 @@ const TransferForm = () => {
   } = useForm({
     defaultValues: {
       sender: `${activeUser.firstName} ${activeUser.lastName}`,
-      date: new Date().toDateString(),
+      date: getCurrentTime("DD/MM/YYYY"),
       amount: 0,
       currency: "USD",
       fee: 0.0,
