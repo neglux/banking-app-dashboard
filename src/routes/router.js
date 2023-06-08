@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import Root from "./components/root";
 import Login from "src/pages/Login";
+import Logout from "src/pages/Logout";
 
 const Dashboard = lazy(() => import("src/pages/Dashboard"));
 const Loan = lazy(() => import("src/pages/Loan"));
@@ -29,5 +30,9 @@ export const router = createBrowserRouter([
   {
     path: "/auth",
     element: <Login />,
+  },
+  {
+    path: "/auth/logout",
+    element: <Logout />,
   },
 ]);
