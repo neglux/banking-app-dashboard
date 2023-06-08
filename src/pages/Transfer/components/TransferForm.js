@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
-import Button from "src/components/inputs/Button";
-import Input from "src/components/inputs/Input";
+import Button from "src/components/common/Button";
+import Input from "src/components/common/Input";
 import { useAuthContext } from "src/context/auth.context";
 import { FormProvider } from "src/context/form.context";
 import bank from "src/data/bank";
