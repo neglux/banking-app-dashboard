@@ -1,8 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
+
 import Root from "./components/root.route";
 import Auth from "src/routes/components/auth.route";
+
 import Unavailable from "./components/unavailable.route";
+import ErrorBoundary from "./components/error.route";
 
 const Dashboard = lazy(() => import("src/pages/Dashboard"));
 const Loan = lazy(() => import("src/pages/Loan"));
@@ -15,6 +18,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         path: "/",
@@ -33,6 +37,7 @@ export const router = createBrowserRouter([
   {
     path: "/auth",
     element: <Auth />,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         path: "/auth",
