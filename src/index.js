@@ -12,10 +12,10 @@ import Notification from "./components/common/Notification";
 import { HelmetProvider } from "react-helmet-async";
 import { init } from "@sentry/react";
 
-// process.env.NODE_ENV === "production" &&
-init({
-  dsn: process.env.REACT_APP_SENTRY_DSN,
-});
+process.env.NODE_ENV === "production" &&
+  init({
+    dsn: process.env.REACT_APP_SENTRY_DSN,
+  });
 
 const root = createRoot(document.getElementById("root"));
 root.render(

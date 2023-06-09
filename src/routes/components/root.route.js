@@ -5,6 +5,7 @@ import { useAuthContext } from "src/context/auth.context";
 import Navbar from "src/components/layout/Navbar";
 import Menu from "src/components/layout/Menu";
 import Viewer from "src/components/layout/Viewer";
+import Loading from "src/assets/Loading";
 
 const Root = () => {
   const { activeUser } = useAuthContext();
@@ -20,7 +21,7 @@ const Root = () => {
         </Grid.Col>
         <Grid.Col xs={11.5}>
           <Viewer>
-            <Suspense fallback={<>loading..</>}>
+            <Suspense fallback={<Loading />}>
               <Outlet />
             </Suspense>
           </Viewer>
