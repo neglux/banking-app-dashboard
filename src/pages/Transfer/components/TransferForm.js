@@ -5,6 +5,7 @@ import { useAuthContext } from "src/context/auth.context";
 import { FormProvider } from "src/context/form.context";
 import users from "src/data/user/users";
 import { getCurrentTime } from "src/utils/date.utils";
+import { mapFullName, selectUsers } from "src/utils/user.utils";
 
 const TransferForm = () => {
   const { activeUser } = useAuthContext();
@@ -25,10 +26,6 @@ const TransferForm = () => {
 
   const handleTransfer = handleSubmit((values) => {});
 
-  const handleFilter = (user) => user.id !== activeUser.id;
-
-  const handleMap = (user) => `${user.firstName} ${user.lastName}`;
-
   return (
     <form className="ml-40 my-20" onSubmit={handleTransfer}>
       <FormProvider control={control} errors={errors}>
@@ -38,7 +35,7 @@ const TransferForm = () => {
           name="receiver"
           label="Receiver"
           placeholder="Choose One"
-          data={users.filter(handleFilter).map(handleMap)}
+          data={users.filter(selectUsers).map(mapFullName)}
           required
         />
         <div className="flex items-center">
