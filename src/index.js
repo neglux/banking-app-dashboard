@@ -11,22 +11,26 @@ import { MantineProvider } from "@mantine/core";
 import Notification from "./components/common/Notification";
 import { HelmetProvider } from "react-helmet-async";
 import { init } from "@sentry/react";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 process.env.NODE_ENV === "production" &&
   init({
     dsn: process.env.REACT_APP_SENTRY_DSN,
   });
+const queryClient = new QueryClient();
 
 const root = createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
-    <AuthProvider>
-      <MantineProvider>
-        <HelmetProvider>
-          <RouterProvider router={router} />
-        </HelmetProvider>
-      </MantineProvider>
-      <Notification />
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <MantineProvider>
+          <HelmetProvider>
+            <RouterProvider router={router} />
+          </HelmetProvider>
+        </MantineProvider>
+        <Notification />
+      </AuthProvider>
+    </QueryClientProvider>
   </StrictMode>
 );

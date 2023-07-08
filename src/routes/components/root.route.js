@@ -1,6 +1,6 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Grid } from "@mantine/core";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { useAuthContext } from "src/context/auth.context";
 import Navbar from "src/components/layout/Navbar";
 import Menu from "src/components/layout/Menu";
@@ -8,8 +8,13 @@ import Viewer from "src/components/layout/Viewer";
 import Loading from "src/assets/Loading";
 
 const Root = () => {
+  const navigate = useNavigate();
   const { activeUser } = useAuthContext();
-  if (!activeUser) return <Navigate to="/auth" />;
+
+  useEffect(() => {
+    if (activeUser) return navigate("/", { replace: true });
+  }, [activeUser, navigate]);
+
   return (
     <>
       <Grid gutter={0}>
