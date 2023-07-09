@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Navbar, Stack, Tooltip } from "@mantine/core";
-import { sections } from "src/data/sections";
 import { useMemo } from "react";
+import { sections } from "src/routes/sections";
 
 const Menu = () => {
   const renderSections = useMemo(() => {
@@ -29,7 +29,7 @@ const Menu = () => {
         </Navbar.Section>
       </>
     );
-  }, [sections]);
+  }, []);
 
   return (
     <Navbar height={"87vh"} className="bg-slate-100">

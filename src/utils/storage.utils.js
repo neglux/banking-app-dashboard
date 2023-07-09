@@ -5,3 +5,11 @@ export const setTokenLocal = (token) => {
 export const getLocalToken = () => {
   return localStorage.getItem("access-token");
 };
+
+export const setUserLocal = (user) => {
+  localStorage.setItem("user-data", JSON.stringify(user));
+};
+
+export const getLocalUser = () => {
+  return localStorage.getItem("user-data");
+};

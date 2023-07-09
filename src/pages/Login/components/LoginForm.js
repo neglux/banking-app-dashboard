@@ -21,9 +21,9 @@ const LogInForm = () => {
     },
   });
 
-  const handleLogin = handleSubmit((data) => {
-    const user = login(data.username, data.password);
-    if (!user) return toast.warning("");
+  const handleLogin = handleSubmit(async (data) => {
+    const isSuccess = await login(data.username, data.password);
+    if (!isSuccess) return toast.warning("");
 
     navigate("/", { replace: true });
     return toast.success("");

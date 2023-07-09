@@ -1,16 +1,15 @@
-import { Suspense, useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Suspense } from "react";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import Head from "src/components/common/Head";
 import Background from "src/components/layout/Background";
 import { useAuthContext } from "src/context/auth.context";
 
 const Auth = () => {
-  const navigate = useNavigate();
+  const location = useLocation();
   const { activeUser } = useAuthContext();
 
-  useEffect(() => {
-    if (activeUser) return navigate("/", { replace: true });
-  }, [activeUser, navigate]);
+  if (activeUser && location.pathname !== "/auth/logout")
+    return <Navigate to={"/"} replace />;
 
   return (
     <Background>

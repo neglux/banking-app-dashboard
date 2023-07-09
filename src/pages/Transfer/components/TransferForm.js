@@ -3,9 +3,7 @@ import Button from "src/components/common/Button";
 import Input from "src/components/common/Input";
 import { useAuthContext } from "src/context/auth.context";
 import { FormProvider } from "src/context/form.context";
-import users from "src/data/user/users";
 import { getCurrentTime } from "src/utils/date.utils";
-import { mapFullName, selectUsers } from "src/utils/user.utils";
 
 const TransferForm = () => {
   const { activeUser } = useAuthContext();
@@ -35,7 +33,7 @@ const TransferForm = () => {
           name="receiver"
           label="Receiver"
           placeholder="Choose One"
-          data={users.filter(selectUsers).map(mapFullName)}
+          // data={users.filter(selectUsers).map(mapFullName)}
           required
         />
         <div className="flex items-center">

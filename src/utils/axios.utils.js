@@ -1,5 +1,6 @@
 import axios from "axios";
 import qs from "qs";
+import { getLocalToken } from "./storage.utils";
 
 const url = process.env.REACT_APP_CASPIAN_API_URL;
 
@@ -19,6 +20,9 @@ const http = axios.create({
 
 http.interceptors.request.use(
   (request) => {
+    const token = getLocalToken();
+    if (token) request.headers.Authorization = `Bearer ${JSON.parse(token)}`;
+
     return request;
   },
   (error) => Promise.reject(error)
