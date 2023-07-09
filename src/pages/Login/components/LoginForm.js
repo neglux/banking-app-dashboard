@@ -5,10 +5,12 @@ import { useAuthContext } from "src/context/auth.context";
 import Button from "src/components/common/Button";
 import Input from "src/components/common/Input";
 import { FormProvider } from "src/context/form.context";
+import { useState } from "react";
 
 const LogInForm = () => {
   const navigate = useNavigate();
   const { login } = useAuthContext();
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     control,
@@ -22,11 +24,13 @@ const LogInForm = () => {
   });
 
   const handleLogin = handleSubmit(async (data) => {
-    const isSuccess = await login(data.username, data.password);
-    if (!isSuccess) return toast.warning("");
+    setIsLoading(true);
+    const response = await login(data.username, data.password);
+    setIsLoading(false);
+    if (!response.ok) return toast.warning(response.message);
 
     navigate("/", { replace: true });
-    return toast.success("");
+    return toast.success("Successfully LoggedIn");
   });
 
   return (
@@ -49,7 +53,7 @@ const LogInForm = () => {
             />
           </div>
         </FormProvider>
-        <Button type="submit" text="Login" />
+        <Button type="submit" text="Login" loading={isLoading} />
         <div className="w-fit text-sm mx-auto mt-8">
           Don't have an account?{" "}
           <a className="font-semibold" href="#">

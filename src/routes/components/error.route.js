@@ -25,6 +25,7 @@ const ErrorBoundary = () => {
           className="ml-1 underline"
           href="https://sentry.io/welcome/#"
           target="_blank"
+          rel="noreferrer"
         >
           sentry.io
         </a>

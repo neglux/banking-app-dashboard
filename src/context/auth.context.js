@@ -10,11 +10,11 @@ const AuthProvider = ({ children }) => {
   async function login(username, password) {
     const payload = { username, password };
 
-    const user = await _login(payload);
-    if (!user) return false;
+    const response = await _login(payload);
+    if (!response.ok) return response;
 
-    setActiveUser(user);
-    return true;
+    setActiveUser(response.data);
+    return response;
   }
 
   function getActiveUser() {

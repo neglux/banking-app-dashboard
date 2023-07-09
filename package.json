@@ -43,7 +43,9 @@
           "allowObject": true
         }
       ],
-      "no-unused-vars": "warn"
+      "no-unused-vars": "warn",
+      "jsx-a11y/anchor-is-valid": "off",
+      "react-hooks/exhaustive-deps": "off"
     }
   },
   "browserslist": {
