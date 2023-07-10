@@ -6,6 +6,7 @@ import Auth from "src/routes/components/auth.route";
 
 import Unavailable from "./components/unavailable.route";
 import ErrorBoundary from "./components/error.route";
+import Account from "src/pages/Account";
 
 const Dashboard = lazy(() => import("src/pages/Dashboard"));
 const Loan = lazy(() => import("src/pages/Loan"));
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "/transfer",
         element: <Transfer />,
+      },
+      {
+        path: "/account",
+        element: <Account />,
       },
     ],
   },

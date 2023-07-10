@@ -1,4 +1,10 @@
-import { FiBriefcase, FiDollarSign, FiGrid, FiLogOut } from "react-icons/fi";
+import {
+  FiBriefcase,
+  FiDollarSign,
+  FiGrid,
+  FiFile,
+  FiLogOut,
+} from "react-icons/fi";
 
 export const sections = [
   {
@@ -6,6 +12,13 @@ export const sections = [
     icon: <FiGrid />,
     text: "Dashboard",
     to: "/",
+    placement: "top",
+  },
+  {
+    id: "account",
+    icon: <FiFile />,
+    text: "Accounts",
+    to: "/account",
     placement: "top",
   },
   {
